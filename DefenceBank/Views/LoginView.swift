@@ -44,14 +44,12 @@ struct LoginView: View {
         
         let keychain = Keychain(service: KEYCHAIN_SERVICE)
         
-        keychain["cookie"] = "09j4f0j4f80j4f8j4f84j"
-        
-//        let credentials = getCredentials()
-//
-//        // No cookie saved
-//        if credentials["cookie"] == nil {
-//            return
-//        }
+        let credentials = getCredentials()
+
+        // No cookie saved
+        if credentials["cookie"] == nil {
+            return
+        }
         
         // Show AccountsView()
         self.showAccountsView = true
