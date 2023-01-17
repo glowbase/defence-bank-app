@@ -18,6 +18,8 @@
 		1E846A75297419FE00FEE80D /* AppDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A74297419FE00FEE80D /* AppDataModel.swift */; };
 		1E846A7829751E8F00FEE80D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
 		1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E846A7A29753F5600FEE80D /* KeychainAccess */; };
+		1E84BBD6297639E100DF1AA6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84BBD5297639E100DF1AA6 /* Extensions.swift */; };
+		1E84BBDA2976440900DF1AA6 /* AccountsTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		1E4B8E9629740A360021FCC6 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		1E846A74297419FE00FEE80D /* AppDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataModel.swift; sourceTree = "<group>"; };
 		1E846A7729751E8F00FEE80D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		1E84BBD5297639E100DF1AA6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTotalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4B8E91297408D70021FCC6 /* AccountView.swift */,
+				1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				1E4B8E942974096B0021FCC6 /* DataStructures.swift */,
 				1E846A74297419FE00FEE80D /* AppDataModel.swift */,
+				1E84BBD5297639E100DF1AA6 /* Extensions.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +202,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4B8E92297408D70021FCC6 /* AccountView.swift in Sources */,
+				1E84BBDA2976440900DF1AA6 /* AccountsTotalView.swift in Sources */,
+				1E84BBD6297639E100DF1AA6 /* Extensions.swift in Sources */,
 				1E4B8E892973DE120021FCC6 /* LoginView.swift in Sources */,
 				1E846A75297419FE00FEE80D /* AppDataModel.swift in Sources */,
 				1E846A7829751E8F00FEE80D /* Methods.swift in Sources */,

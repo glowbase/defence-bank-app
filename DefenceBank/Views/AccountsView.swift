@@ -16,6 +16,7 @@ struct AccountsView: View {
                 ForEach(Array(data.accounts.enumerated()), id: \.element) { index, account in
                     AccountView(account: account)
                 }
+                AccountsTotalView()
             }
             .padding()
             .navigationTitle("Accounts")
@@ -34,7 +35,7 @@ struct AccountsView_Previews: PreviewProvider {
     }()
     
     static var previews: some View {
-        AccountsView()
+        AccountsView(data: data)
             .environmentObject(data)
     }
 }

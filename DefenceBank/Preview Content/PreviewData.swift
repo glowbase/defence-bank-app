@@ -9,9 +9,10 @@ import Foundation
 
 var accountPreviewData = Account(
     AccountNumber: "20392984",
-    Description: "Everyday Access",
-    CurrentBalance: 104.28,
-    ClassDescription: "Max E Saver"
+    Description: "Everyday",
+    CurrentBalance: 394.64,
+    AvailableBalance: 375.25,
+    ClassDescription: "Everyday Access"
 )
 
 var accountsPreviewData = [Account](repeating: accountPreviewData, count: 3)

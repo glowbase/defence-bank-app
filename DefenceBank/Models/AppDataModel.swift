@@ -9,6 +9,7 @@ import Foundation
 
 final class AppDataModel: ObservableObject {
     @Published var accounts: [Account] = []
+    @Published var accountsTotal: Double = 0.0
     
     init() {
         var temp_accounts = getAccounts()
@@ -22,6 +23,17 @@ final class AppDataModel: ObservableObject {
         }
         
         self.accounts = temp_accounts
+        self.accountsTotal = getAccountsTotal(accounts: temp_accounts)
+    }
+    
+    func getAccountsTotal(accounts: [Account]) -> Double {
+        var total: Double = 0.0
+        
+        accounts.forEach { account in
+            total += account.AvailableBalance
+        }
+        
+        return total
     }
     
     func getAccounts() -> [Account] {

@@ -11,6 +11,7 @@ struct Account: Codable, Hashable {
     let AccountNumber: String
     let Description: String
     let CurrentBalance: Double
+    let AvailableBalance: Double
     let ClassDescription: String
 }
 
