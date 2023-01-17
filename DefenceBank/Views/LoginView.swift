@@ -25,11 +25,13 @@ struct LoginView: View {
         }
         
         // Save everything to keychain
-        saveCredentials(
-            member_number: member_number,
-            password: password,
-            cookie: cookie
+        let credentials = Credentials(
+            Cookie: cookie,
+            MemberNumber: member_number,
+            Password: password
         )
+        
+        saveCredentials(credentials: credentials)
         
         // Show AccountsView()
         self.showAccountsView = true
@@ -41,13 +43,12 @@ struct LoginView: View {
         
         // If the cookie is invalid, the AccountsView() will determine
         // this and then show get a new cookie using saved credentials
-        
-        let keychain = Keychain(service: KEYCHAIN_SERVICE)
-        
         let credentials = getCredentials()
-
+        
+        print("PRE-LOGIN: \(credentials.Cookie)")
+        
         // No cookie saved
-        if credentials["cookie"] == nil {
+        if credentials.Cookie == "" {
             return
         }
         

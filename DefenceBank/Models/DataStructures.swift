@@ -13,3 +13,9 @@ struct Account: Codable, Hashable {
     let CurrentBalance: Double
     let ClassDescription: String
 }
+
+struct Credentials: Decodable {
+    var Cookie: String
+    var MemberNumber: String
+    var Password: String
+}

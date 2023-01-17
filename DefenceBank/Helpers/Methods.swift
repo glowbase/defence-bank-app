@@ -10,21 +10,21 @@ import KeychainAccess
 
 let KEYCHAIN_SERVICE = "com.cooperbeltrami.DefenceBank"
 
-func saveCredentials(member_number:String, password:String, cookie:String) {
+func saveCredentials(credentials: Credentials) {
     let keychain = Keychain(service: KEYCHAIN_SERVICE)
     
-    keychain["member_number"] = member_number
-    keychain["password"] = password
-    keychain["cookie"] = cookie
+    keychain["member_number"] = credentials.MemberNumber
+    keychain["password"] = credentials.Password
+    keychain["cookie"] = credentials.Cookie
 }
 
-func getCredentials() -> Dictionary<String, String> {
+func getCredentials() -> Credentials {
     let keychain = Keychain(service: KEYCHAIN_SERVICE)
-    var credentials = Dictionary<String, String>()
-    
-    credentials["member_number"] = keychain["member_number"]
-    credentials["password"] = keychain["password"]
-    credentials["cookie"] = keychain["cookie"]
+    let credentials = Credentials(
+        Cookie: keychain["cookie"] ?? "",
+        MemberNumber: keychain["member_number"] ?? "",
+        Password: keychain["password"] ?? ""
+    )
     
     return credentials
 }

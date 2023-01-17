@@ -25,6 +25,8 @@ final class AppDataModel: ObservableObject {
     }
     
     func getAccounts() -> [Account] {
+        print("GET ACCOUNTS")
+        
         guard let url = URL(string: "https://digital.defencebank.com.au/platform.axd?u=account%2FGetAccountsBasicData") else {
             return []
         }
@@ -32,9 +34,9 @@ final class AppDataModel: ObservableObject {
         var accounts: [Account] = []
         
         let credentials = getCredentials()
-        let cookie = credentials["cookie"] ?? ""
-        
         let sem = DispatchSemaphore.init(value: 0)
+        
+        print("COOKIE: \(credentials.Cookie)")
         
         // Request payload
         let body: [String: AnyHashable] = [
@@ -47,7 +49,7 @@ final class AppDataModel: ObservableObject {
         request.httpMethod = "POST"
         request.httpShouldHandleCookies = true
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("DigitalBanking=\(cookie)", forHTTPHeaderField: "Cookie")
+        request.setValue("DigitalBanking=\(credentials.Cookie)", forHTTPHeaderField: "Cookie")
         request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
         
         // Make request and get accounts
@@ -63,27 +65,28 @@ final class AppDataModel: ObservableObject {
             } catch {
                 // Most likely the data model is different, this means the
                 // data is probably the error rather than accounts.
-                print("ACCOUNTS FETCH FAILED, TRYING AGAIN")
+                print("INVALID COOKIE")
                 
                 // Let's try getting a new token and trying to gather
                 // accounts again.
                 let credentials = getCredentials()
                 
-                let member_number = credentials["member_number"] ?? ""
-                let password = credentials["password"] ?? ""
-                
                 // Request a new cookie
                 let cookie = getCookie(
-                    member_number: member_number,
-                    password: password
+                    member_number: credentials.MemberNumber,
+                    password: credentials.Password
                 )
                 
+                print("REFRESHED COOKIE: \(cookie)")
+                
                 // Save the cookie
-                saveCredentials(
-                    member_number: member_number,
-                    password: password,
-                    cookie: cookie
+                let updatedCredentials = Credentials(
+                    Cookie: cookie,
+                    MemberNumber: credentials.MemberNumber,
+                    Password: credentials.Password
                 )
+                
+                saveCredentials(credentials: updatedCredentials)
             }
         }
         
