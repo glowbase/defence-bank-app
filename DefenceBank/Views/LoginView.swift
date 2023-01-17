@@ -58,27 +58,47 @@ struct LoginView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                // MARK: Title
-                Text("Defence Bank")
-                    .bold()
-                    .padding([.bottom, .top], 64)
-                    .font(.largeTitle)
+            VStack() {
+                HStack() {
+                    VStack(alignment: .leading) {
+                        Image("Logo")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                            .padding([.bottom], 12)
+                        
+                        VStack(alignment: .leading) {
+                            Text("Welcome to")
+                            Text("Defence Bank")
+                                .foregroundColor(Color.accentColor)
+                        }
+                        .font(.system(size: 40))
+                        .fontWeight(.light)
+                    }
+                    .padding([.top], 50)
+                    
+                    Spacer()
+                }
+                .padding()
+                .padding([.bottom], 32)
                 
-                // MARK: Member Number
-                TextField("Member Number", text: $member_number)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(5)
-                    .keyboardType(.numberPad)
-                    .textContentType(.username)
-                
-                // MARK: Password
-                SecureField("Password", text: $password)
-                    .padding()
-                    .background(Color(.secondarySystemBackground))
-                    .cornerRadius(5)
-                    .textContentType(.password)
+                VStack {
+                    // MARK: Member Number
+                    TextField("Member Number", text: $member_number)
+                        .padding()
+                        .background(Color(.secondarySystemBackground).opacity(0.8))
+                        .cornerRadius(5)
+                        .keyboardType(.numberPad)
+                        .textContentType(.username)
+                    
+                    // MARK: Password
+                    SecureField("Password", text: $password)
+                        .padding()
+                        .background(Color(.secondarySystemBackground).opacity(0.8))
+                        .cornerRadius(5)
+                        .textContentType(.password)
+                }
+                .fontWeight(.light)
+                .padding([.leading, .trailing], 10)
                 
                 Spacer()
                 
@@ -95,10 +115,14 @@ struct LoginView: View {
                             .foregroundColor(.white)
                         Spacer()
                     }
-                    .padding()
-                    .background(Color(.systemRed))
-                    .cornerRadius(5)
+                    .padding(20)
+                    .background(Color.accentColor)
+                    .cornerRadius(12)
                 })
+                
+                Link("Don't have an account?", destination: URL(string: "https://join.defencebank.com.au/#/welcome")!)
+                    .padding([.top, .bottom], 10)
+                    .foregroundColor(.primary)
                 
                 NavigationLink(
                     destination: AccountsView().navigationBarBackButtonHidden(true),

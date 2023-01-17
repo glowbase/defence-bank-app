@@ -107,5 +107,4 @@ final class AppDataModel: ObservableObject {
         
         return accounts
     }
-
 }

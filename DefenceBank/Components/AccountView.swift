@@ -12,13 +12,16 @@ struct AccountView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 22) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(account.Description)
-                    .font(.title2)
-                    .bold()
-                Text(account.AccountNumber)
-                    .foregroundColor(.white.opacity(0.8))
-                    .font(.subheadline)
+            HStack {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(account.Description)
+                        .font(.title3)
+                    Text(account.AccountNumber)
+                        .foregroundColor(.white.opacity(0.8))
+                        .font(.subheadline)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
             }
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
