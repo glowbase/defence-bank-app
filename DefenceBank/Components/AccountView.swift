@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State private var showTransactionsView: Bool = false
     var account: Account
     
     var body: some View {
@@ -38,6 +39,11 @@ struct AccountView: View {
                         .foregroundColor(.white.opacity(0.8))
                 }
             }
+            
+            NavigationLink(
+                destination: TransactionsView(account: account),
+                isActive: $showTransactionsView
+            ) { EmptyView() }
         }
         .padding()
         .foregroundColor(.white)
@@ -45,6 +51,9 @@ struct AccountView: View {
             LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing)
         )
         .cornerRadius(8)
+        .onTapGesture {
+            self.showTransactionsView = true
+        }
     }
 }
 

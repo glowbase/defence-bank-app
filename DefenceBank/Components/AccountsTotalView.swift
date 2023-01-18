@@ -11,16 +11,18 @@ struct AccountsTotalView: View {
     @StateObject var data = AppDataModel()
     
     var body: some View {
-        HStack() {
-            Text("Total")
-            Spacer()
-            Text(data.accountsTotal, format: .currency(code: "AUD"))
-                .font(.title2)
-                .bold()
+        if data.accountsTotal != 0.0 {
+            HStack() {
+                Text("Total")
+                Spacer()
+                Text(data.accountsTotal, format: .currency(code: "AUD"))
+                    .font(.title2)
+                    .bold()
+            }
+            .padding()
+            .background(Color(.secondarySystemBackground))
+            .cornerRadius(8)
         }
-        .padding()
-        .background(Color(.secondarySystemBackground))
-        .cornerRadius(8)
     }
 }
 

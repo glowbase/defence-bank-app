@@ -15,6 +15,25 @@ struct Account: Codable, Hashable {
     let ClassDescription: String
 }
 
+struct Transaction: Codable, Hashable {
+    let AccountNumber: String?
+    let CreateDate: String?
+    let DebitAmount: Double?
+    let Balance: Double?
+    let Description: String?
+    let LongDescription: String?
+    let TransactionCodeDescription: String?
+    let ImmutableTransactionId: Double?
+    let CanLookupMerchant: Bool?
+    let MerchantLogo: String?
+    let MerchantName: String?
+    let CategoryList: [String]?
+}
+
+struct TransactionResponse: Codable {
+    let TransactionDetails: [Transaction]?
+}
+
 struct Credentials: Decodable {
     var Cookie: String
     var MemberNumber: String

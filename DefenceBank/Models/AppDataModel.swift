@@ -12,18 +12,10 @@ final class AppDataModel: ObservableObject {
     @Published var accountsTotal: Double = 0.0
     
     init() {
-        var temp_accounts = getAccounts()
-        
-        // Tring to get accounts the first time might fail if
-        // the cookie is invalid. The getAccounts() function
-        // has the logic to generate a new token and save it
-        // but will not reinvoke itself so we are doing it here
-        if temp_accounts == [] {
-            temp_accounts = getAccounts()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.accounts = self.getAccounts()
+            self.accountsTotal = self.getAccountsTotal(accounts: self.accounts)
         }
-        
-        self.accounts = temp_accounts
-        self.accountsTotal = getAccountsTotal(accounts: temp_accounts)
     }
     
     func getAccountsTotal(accounts: [Account]) -> Double {
@@ -37,6 +29,20 @@ final class AppDataModel: ObservableObject {
     }
     
     func getAccounts() -> [Account] {
+        var temp_accounts = _getAccounts()
+        
+        // Tring to get accounts the first time might fail if
+        // the cookie is invalid. The getAccounts() function
+        // has the logic to generate a new token and save it
+        // but will not reinvoke itself so we are doing it here
+        if temp_accounts == [] {
+            temp_accounts = _getAccounts()
+        }
+        
+        return temp_accounts
+    }
+    
+    func _getAccounts() -> [Account] {
         print("GET ACCOUNTS")
         
         guard let url = URL(string: "https://digital.defencebank.com.au/platform.axd?u=account%2FGetAccountsBasicData") else {
