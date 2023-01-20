@@ -15,4 +15,22 @@ var accountPreviewData = Account(
     ClassDescription: "Everyday Access"
 )
 
+var transactionPreviewData = Transaction(
+    AccountNumber: "20392984",
+    CreateDate: "",
+    DebitAmount: 103.64,
+    Balance: 402.6,
+    Description: "Place holder transaction",
+    LongDescription: "",
+    TransactionCodeDescription: "",
+    ImmutableTransactionId: 903894508392,
+    CanLookupMerchant: false,
+    MerchantLogo: "",
+    MerchantName: "",
+    CategoryList: [
+        "Food/Drink"
+    ]
+)
+
+var transactionsPreviewData = [Transaction](repeating: transactionPreviewData, count: 5)
 var accountsPreviewData = [Account](repeating: accountPreviewData, count: 3)

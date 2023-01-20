@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct TransactionsView: View {
+    @StateObject var data = AppDataModel()
+    
     let account: Account
-    @State var transactions: [Transaction] = []
     
     var body: some View {
         VStack() {
             Text("Testing")
             List() {
-                ForEach(Array(transactions.enumerated()), id: \.element) { index, transaction in
+                ForEach(Array(data.transactions.enumerated() ?? transactionsPreviewData.enumerated()), id: \.element) { index, transaction in
                     Text(transaction.LongDescription ?? "No Description")
                 }
             }
@@ -24,14 +25,23 @@ struct TransactionsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             DispatchQueue.global(qos: .background).async {
-                transactions = getTransactions(account_number: account.AccountNumber)
+                self.data.transactions = getTransactions(account_number: account.AccountNumber)
             }
         }
     }
 }
 
 struct TransactionsView_Previews: PreviewProvider {
+    static let data: AppDataModel = {
+        let data = AppDataModel()
+        
+        data.accounts = accountsPreviewData
+        
+        return data
+    }()
+    
     static var previews: some View {
         TransactionsView(account: accountPreviewData)
+            .environmentObject(data)
     }
 }
