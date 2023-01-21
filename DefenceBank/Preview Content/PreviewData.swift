@@ -19,6 +19,7 @@ var transactionPreviewData = Transaction(
     AccountNumber: "20392984",
     CreateDate: "",
     DebitAmount: 103.64,
+    CreditAmount: 0.0,
     Balance: 402.6,
     Description: "Place holder transaction",
     LongDescription: "",

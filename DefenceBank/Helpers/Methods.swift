@@ -81,3 +81,152 @@ func getCookie(member_number:String, password:String) -> String {
     
     return cookies["DigitalBanking"] ?? ""
 }
+
+func _getAccounts() -> [Account] {
+    print("GET ACCOUNTS")
+    
+    guard let url = URL(string: "https://digital.defencebank.com.au/platform.axd?u=account%2FGetAccountsBasicData") else {
+        return []
+    }
+    
+    var accounts: [Account] = []
+    
+    let credentials = getCredentials()
+    let sem = DispatchSemaphore.init(value: 0)
+    
+    print("COOKIE: \(credentials.Cookie)")
+    
+    // Request payload
+    let body: [String: AnyHashable] = [
+        "ForceFetchData": true
+    ]
+    
+    // Create url request
+    var request = URLRequest(url: url)
+    
+    request.httpMethod = "POST"
+    request.httpShouldHandleCookies = true
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("DigitalBanking=\(credentials.Cookie)", forHTTPHeaderField: "Cookie")
+    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+    
+    // Make request and get accounts
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        defer { sem.signal() }
+        
+        guard let data = data, error == nil else {
+            return
+        }
+        
+        do {
+            accounts = try JSONDecoder().decode([Account].self, from: data)
+        } catch {
+            // Most likely the data model is different, this means the
+            // data is probably the error rather than accounts.
+            print("INVALID COOKIE")
+            
+            // Let's try getting a new token and trying to gather
+            // accounts again.
+            let credentials = getCredentials()
+            
+            // Request a new cookie
+            let cookie = getCookie(
+                member_number: credentials.MemberNumber,
+                password: credentials.Password
+            )
+            
+            print("REFRESHED COOKIE: \(cookie)")
+            
+            // Save the cookie
+            let updatedCredentials = Credentials(
+                Cookie: cookie,
+                MemberNumber: credentials.MemberNumber,
+                Password: credentials.Password
+            )
+            
+            saveCredentials(credentials: updatedCredentials)
+        }
+    }
+    
+    task.resume()
+    sem.wait()
+    
+    return accounts
+}
+
+func _getTranasactions(account_number: String) -> [Transaction] {
+    print("GET TRANSACTIONS")
+    
+    guard let url = URL(string: "https://digital.defencebank.com.au/platform.axd?u=transaction%2FGetTransactionHistoryEnhanced") else {
+        return []
+    }
+    
+    var transactions: [Transaction] = []
+    
+    let credentials = getCredentials()
+    let sem = DispatchSemaphore.init(value: 0)
+    
+    print("COOKIE: \(credentials.Cookie)")
+    print("ACCOUNT NUMBER: \(account_number)")
+    
+    // Request payload
+    let body: [String: AnyHashable] = [
+        "AccountNumber": account_number
+    ]
+    
+    // Create url request
+    var request = URLRequest(url: url)
+    
+    request.httpMethod = "POST"
+    request.httpShouldHandleCookies = true
+    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+    request.setValue("DigitalBanking=\(credentials.Cookie)", forHTTPHeaderField: "Cookie")
+    request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: .fragmentsAllowed)
+    
+    // Make request and get accounts
+    let task = URLSession.shared.dataTask(with: request) { data, _, error in
+        defer { sem.signal() }
+        
+        guard let data = data, error == nil else {
+            return
+        }
+        
+        do {
+            let response = try JSONDecoder().decode(TransactionResponse.self, from: data)
+            
+            transactions = response.TransactionDetails ?? []
+        } catch {
+            print("ERROR: \(error.localizedDescription)")
+            
+            // Most likely the data model is different, this means the
+            // data is probably the error rather than accounts.
+            print("INVALID COOKIE")
+
+            // Let's try getting a new token and trying to gather
+            // accounts again.
+            let credentials = getCredentials()
+
+            // Request a new cookie
+            let cookie = getCookie(
+                member_number: credentials.MemberNumber,
+                password: credentials.Password
+            )
+
+            print("REFRESHED COOKIE: \(cookie)")
+
+            // Save the cookie
+            let updatedCredentials = Credentials(
+                Cookie: cookie,
+                MemberNumber: credentials.MemberNumber,
+                Password: credentials.Password
+            )
+
+            saveCredentials(credentials: updatedCredentials)
+        }
+    }
+    
+    task.resume()
+    sem.wait()
+    
+    return transactions
+}

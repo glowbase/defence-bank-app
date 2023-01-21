@@ -14,10 +14,60 @@ struct TransactionsView: View {
     
     var body: some View {
         VStack() {
-            Text("Testing")
-            List() {
-                ForEach(Array(data.transactions.enumerated() ?? transactionsPreviewData.enumerated()), id: \.element) { index, transaction in
-                    Text(transaction.LongDescription ?? "No Description")
+            HStack() {
+                VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("Available")
+                        Text(account.AvailableBalance, format: .currency(code: "AUD"))
+                            .font(.title)
+                            .bold()
+                        
+                        VStack(alignment: .leading, spacing: 3) {
+                            HStack(spacing: 5) {
+                                Text("Balance")
+                                    .foregroundColor(.secondary)
+                                
+                                Text(account.CurrentBalance, format: .currency(code: "AUD"))
+                                
+                            }
+                            
+                            HStack(spacing: 5) {
+                                Text("Pending")
+                                    .foregroundColor(.secondary)
+                                    
+                                Text(15.3, format: .currency(code: "AUD"))
+                            }
+                        }
+                        .font(.subheadline)
+                        .padding([.top], 4)
+                        
+                        HStack() {
+                            Button("Transfer", action: {
+                                
+                            })
+                            .padding()
+                            .font(.callout)
+                            .background(.secondary.opacity(0.2))
+                            .cornerRadius(25)
+                            .foregroundColor(.primary)
+                        }
+                        .padding([.top], 20)
+                        
+                        Divider()
+                            .padding([.top], 24)
+                    }
+                    .padding()
+                    
+                    Text("Activity")
+                        .font(.title2)
+                        .padding([.leading])
+                    
+                    List() {
+                        ForEach(Array(data.transactions.enumerated()), id: \.element) { index, transaction in
+                            TransactionView(transaction: transaction)
+                        }
+                    }
+                    .scrollContentBackground(.hidden)
                 }
             }
         }

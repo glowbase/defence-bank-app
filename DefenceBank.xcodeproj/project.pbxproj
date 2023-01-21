@@ -27,6 +27,7 @@
 		1E846A7829751E8F00FEE80D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
 		1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E846A7A29753F5600FEE80D /* KeychainAccess */; };
 		1E84BBDA2976440900DF1AA6 /* AccountsTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */; };
+		1E91E728297BA740003501BC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91E727297BA740003501BC /* TransactionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsTotalView.swift; sourceTree = "<group>"; };
 		1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		1E91E727297BA740003501BC /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				1E4B8E91297408D70021FCC6 /* AccountView.swift */,
 				1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */,
+				1E91E727297BA740003501BC /* TransactionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				1E4B8E892973DE120021FCC6 /* LoginView.swift in Sources */,
 				1E846A75297419FE00FEE80D /* AppDataModel.swift in Sources */,
 				1E846A7829751E8F00FEE80D /* Methods.swift in Sources */,
+				1E91E728297BA740003501BC /* TransactionView.swift in Sources */,
 				1E4B8E9729740A360021FCC6 /* PreviewData.swift in Sources */,
 				1E4B8E7B2973D49D0021FCC6 /* DefenceBankApp.swift in Sources */,
 				1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */,

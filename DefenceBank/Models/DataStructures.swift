@@ -18,8 +18,9 @@ struct Account: Codable, Hashable {
 struct Transaction: Codable, Hashable {
     let AccountNumber: String?
     let CreateDate: String?
-    let DebitAmount: Double?
-    let Balance: Double?
+    let DebitAmount: Double
+    let CreditAmount: Double
+    let Balance: Double
     let Description: String?
     let LongDescription: String?
     let TransactionCodeDescription: String?
