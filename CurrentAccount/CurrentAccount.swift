@@ -206,9 +206,32 @@ struct Account: Decodable {
     let ClassDescription: String
 }
 
+extension View {
+    func widgetBackground(backgroundView: some View) -> some View {
+        if #available(iOSApplicationExtension 17.0, *) {
+            return containerBackground(for: .widget) {
+                backgroundView
+            }
+        } else {
+            return background(backgroundView)
+        }
+    }
+}
+
+extension View {
+    func widgetView() -> some View {
+        return RoundedRectangle(cornerRadius: 0, style: .continuous)
+            .fill(
+                LinearGradient(
+                    gradient: .init(colors: [.pink, Color("AccentColor")]),
+                    startPoint: .top, endPoint: .bottom
+            ))
+    }
+}
+
 struct CurrentAccountEntryView : View {
     var entry: Provider.Entry
-
+    
     var body: some View {
         ZStack() {
             RoundedRectangle(cornerRadius: 0, style: .continuous)
@@ -217,7 +240,6 @@ struct CurrentAccountEntryView : View {
                         gradient: .init(colors: [.pink, Color("AccentColor")]),
                         startPoint: .top, endPoint: .bottom
                 ))
-
             HStack() {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(entry.account.Description)
@@ -250,6 +272,7 @@ struct CurrentAccountEntryView : View {
                 Spacer()
             }
         }
+        .widgetBackground(backgroundView: widgetView())
     }
 }
 
@@ -262,6 +285,7 @@ struct CurrentAccount: Widget {
         }
         .configurationDisplayName("Defence Bank")
         .description("View your account balance.")
+        .contentMarginsDisabled()
     }
 }
 

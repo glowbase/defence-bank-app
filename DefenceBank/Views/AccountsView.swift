@@ -12,16 +12,45 @@ struct AccountsView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
-                ForEach(Array(data.accounts.enumerated()), id: \.element) { index, account in
-                    AccountView(account: account)
+            List {
+                Section(header: Text("Accounts").headerProminence(.increased)) {
+                    if data.accounts.count > 0 {
+                        ForEach(Array(data.accounts.enumerated()), id: \.element) { index, account in
+                            NavigationLink(destination: TransactionsView(account: account)) {
+                                AccountView(account: account)
+                            }
+                        }
+                        .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
+                    } else {
+                        let placeholderAccount = Account(
+                            AccountNumber: "20392984",
+                            Description: "Everyday",
+                            CurrentBalance: 394.64,
+                            AvailableBalance: 375.25,
+                            ClassDescription: "Everyday Access"
+                        )
+                    
+                        
+                        NavigationLink(destination: EmptyView()) {
+                            AccountView(account: placeholderAccount)
+                        }
+                        .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
+                        .redacted(reason: .placeholder)
+                        
+                        NavigationLink(destination: EmptyView()) {
+                            AccountView(account: placeholderAccount)
+                        }
+                        .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
+                        .redacted(reason: .placeholder)
+                    }
                 }
-                AccountsTotalView()
+                .listRowInsets(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 15))
+                .scrollContentBackground(.hidden)
             }
-            .padding()
-            .navigationTitle("Accounts")
+            .environmentObject(data)
+            .listStyle(.insetGrouped)
+            .navigationTitle("Dashboard")
         }
-        .environmentObject(data)
     }
 }
 
