@@ -28,6 +28,8 @@
 		1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E846A7A29753F5600FEE80D /* KeychainAccess */; };
 		1E84BBDA2976440900DF1AA6 /* AccountsTotalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E84BBD92976440900DF1AA6 /* AccountsTotalView.swift */; };
 		1E91E728297BA740003501BC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91E727297BA740003501BC /* TransactionView.swift */; };
+		1ECCA3242A77542D00096FFE /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 1ECCA3232A77542D00096FFE /* Collections */; };
+		1ECCA3262A77554700096FFE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ECCA3252A77554700096FFE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,7 @@
 		1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1E91E727297BA740003501BC /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		1ECCA3252A77554700096FFE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECCA3242A77542D00096FFE /* Collections in Frameworks */,
 				1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				1E846A7729751E8F00FEE80D /* Methods.swift */,
+				1ECCA3252A77554700096FFE /* Extensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			name = DefenceBank;
 			packageProductDependencies = (
 				1E846A7A29753F5600FEE80D /* KeychainAccess */,
+				1ECCA3232A77542D00096FFE /* Collections */,
 			);
 			productName = DefenceBank;
 			productReference = 1E4B8E772973D49D0021FCC6 /* DefenceBank.app */;
@@ -275,6 +281,7 @@
 			mainGroup = 1E4B8E6E2973D49D0021FCC6;
 			packageReferences = (
 				1E846A7929753F5600FEE80D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				1ECCA3222A77542D00096FFE /* XCRemoteSwiftPackageReference "swift-collections" */,
 			);
 			productRefGroup = 1E4B8E782973D49D0021FCC6 /* Products */;
 			projectDirPath = "";
@@ -327,6 +334,7 @@
 				1E846A7829751E8F00FEE80D /* Methods.swift in Sources */,
 				1E91E728297BA740003501BC /* TransactionView.swift in Sources */,
 				1E4B8E9729740A360021FCC6 /* PreviewData.swift in Sources */,
+				1ECCA3262A77554700096FFE /* Extensions.swift in Sources */,
 				1E4B8E7B2973D49D0021FCC6 /* DefenceBankApp.swift in Sources */,
 				1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */,
 				1E4B8E952974096B0021FCC6 /* DataStructures.swift in Sources */,
@@ -624,6 +632,14 @@
 				kind = branch;
 			};
 		};
+		1ECCA3222A77542D00096FFE /* XCRemoteSwiftPackageReference "swift-collections" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-collections.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -636,6 +652,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 1E846A7929753F5600FEE80D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		1ECCA3232A77542D00096FFE /* Collections */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1ECCA3222A77542D00096FFE /* XCRemoteSwiftPackageReference "swift-collections" */;
+			productName = Collections;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

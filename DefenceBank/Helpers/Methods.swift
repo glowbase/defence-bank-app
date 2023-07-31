@@ -10,6 +10,10 @@ import KeychainAccess
 
 let KEYCHAIN_SERVICE = "com.cooperbeltrami.DefenceBank"
 
+var isPreview: Bool {
+    return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+}
+
 func saveCredentials(credentials: Credentials) {
     let keychain = Keychain(service: KEYCHAIN_SERVICE)
     
@@ -94,8 +98,6 @@ func _getAccounts() -> [Account] {
     let credentials = getCredentials()
     let sem = DispatchSemaphore.init(value: 0)
     
-    print("COOKIE: \(credentials.Cookie)")
-    
     // Request payload
     let body: [String: AnyHashable] = [
         "ForceFetchData": true
@@ -165,9 +167,6 @@ func _getTranasactions(account_number: String) -> [Transaction] {
     
     let credentials = getCredentials()
     let sem = DispatchSemaphore.init(value: 0)
-    
-    print("COOKIE: \(credentials.Cookie)")
-    print("ACCOUNT NUMBER: \(account_number)")
     
     // Request payload
     let body: [String: AnyHashable] = [

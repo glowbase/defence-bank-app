@@ -13,6 +13,10 @@ struct AccountsView: View {
     var body: some View {
         NavigationView {
             List {
+                if isPreview {
+                    Text("Heading notifications goes here...")
+                }
+                
                 Section(header: Text("Accounts").headerProminence(.increased)) {
                     if data.accounts.count > 0 {
                         ForEach(Array(data.accounts.enumerated()), id: \.element) { index, account in
@@ -46,10 +50,24 @@ struct AccountsView: View {
                 }
                 .listRowInsets(EdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 15))
                 .scrollContentBackground(.hidden)
+                
+                if isPreview {
+                    Section(header: Text("Summary").headerProminence(.increased)) {
+                        Text("Weekly spending graph goes here...")
+                    }
+                    .scrollContentBackground(.hidden)
+                }
             }
             .environmentObject(data)
             .listStyle(.insetGrouped)
             .navigationTitle("Dashboard")
+            .toolbar {   
+                Button(action: {
+                    
+                }, label: {
+                    Image(systemName: "gearshape")
+                })
+            }
         }
     }
 }

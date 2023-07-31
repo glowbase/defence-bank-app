@@ -9,27 +9,37 @@ import SwiftUI
 
 struct TransactionsView: View {
     @StateObject var data = AppDataModel()
+    @State private var searchText = ""
     
     let account: Account
     
     var body: some View {
-        VStack() {
-            HStack() {
-                VStack(alignment: .leading) {
-                    List() {
-                        ForEach(Array(data.transactions.enumerated()), id: \.element) { index, transaction in
-                            TransactionView(transaction: transaction)
-                        }
-                    }
-                    .scrollContentBackground(.hidden)
+        List {
+            ForEach(Array(transactionResults.enumerated()), id: \.element) { index, transaction in
+                TransactionView(transaction: transaction)
+            }
+        }
+        .searchable(text: $searchText)
+        .navigationTitle(account.Description)
+        .onAppear {
+            DispatchQueue.global(qos: .background).async {
+                if isPreview {
+                    self.data.transactions = transactionsPreviewData
+                } else {
+                    self.data.transactions = getTransactions(account_number: account.AccountNumber)
+                    
+                    print(self.data.transactions)
                 }
             }
         }
-        .navigationTitle("Transactions")
-        .navigationBarTitleDisplayMode(.inline)
-        .onAppear {
-            DispatchQueue.global(qos: .background).async {
-                self.data.transactions = getTransactions(account_number: account.AccountNumber)
+    }
+    
+    var transactionResults: [Transaction] {
+        if searchText.isEmpty {
+            return data.transactions
+        } else {
+            return data.transactions.filter {
+                ($0.MerchantName?.lowercased() ?? $0.LongDescription?.lowercased())?.contains(searchText.lowercased()) ?? false
             }
         }
     }
@@ -39,13 +49,13 @@ struct TransactionsView_Previews: PreviewProvider {
     static let data: AppDataModel = {
         let data = AppDataModel()
         
-        data.accounts = accountsPreviewData
-        
         return data
     }()
     
     static var previews: some View {
-        TransactionsView(account: accountPreviewData)
-            .environmentObject(data)
+        NavigationStack {
+            TransactionsView(account: accountPreviewData)
+                .environmentObject(data)
+        }
     }
 }

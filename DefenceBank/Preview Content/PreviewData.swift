@@ -22,16 +22,16 @@ var transactionPreviewData = Transaction(
     CreditAmount: 0.0,
     Balance: 402.6,
     Description: "Place holder transaction",
-    LongDescription: "",
+    LongDescription: "Place holder transaction",
     TransactionCodeDescription: "",
     ImmutableTransactionId: 903894508392,
     CanLookupMerchant: false,
     MerchantLogo: "",
-    MerchantName: "",
+    MerchantName: "Place holder transaction",
     CategoryList: [
         "Food/Drink"
     ]
 )
 
 var transactionsPreviewData = [Transaction](repeating: transactionPreviewData, count: 5)
-var accountsPreviewData = [Account](repeating: accountPreviewData, count: 3)
+var accountsPreviewData = [Account](repeating: accountPreviewData, count: 2)

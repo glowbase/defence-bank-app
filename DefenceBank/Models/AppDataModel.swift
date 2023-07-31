@@ -6,6 +6,9 @@
 //
 
 import Foundation
+import Collections
+
+typealias TransactionGroup = OrderedDictionary<String, [Transaction]>
 
 final class AppDataModel: ObservableObject {
     @Published var accounts: [Account] = []
@@ -15,11 +18,21 @@ final class AppDataModel: ObservableObject {
     @Published var accountsTotal: Double = 0.0
     
     init() {
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.accounts = getAccounts()
-            self.accountsTotal = getAccountsTotal(accounts: self.accounts)
+        if !isPreview {
+            DispatchQueue.global(qos: .userInitiated).async {
+                self.accounts = getAccounts()
+                self.accountsTotal = getAccountsTotal(accounts: self.accounts)
+            }
         }
     }
+    
+//    func groupTransactionsByMonth() -> TransactionGroup {
+//        guard !transactions.isEmpty else { return [:] }
+//        
+//        let grouppedTransactions = TransactionGroup(grouping: transactions, by: { $0.month })
+//        
+//        return grouppedTransactions
+//    }
 }
 
 func getAccountsTotal(accounts: [Account]) -> Double {
@@ -55,7 +68,3 @@ func getTransactions(account_number: String) -> [Transaction] {
     
     return temp_transactions
 }
-
-//func getPending(account_number: String) -> [Transaction] {
-//    
-//}

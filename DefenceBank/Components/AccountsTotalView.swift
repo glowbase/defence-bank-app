@@ -11,17 +11,12 @@ struct AccountsTotalView: View {
     @StateObject var data = AppDataModel()
     
     var body: some View {
-        if data.accountsTotal != 0.0 {
-            HStack() {
-                Text("Total")
-                Spacer()
-                Text(data.accountsTotal, format: .currency(code: "AUD"))
-                    .font(.title2)
-                    .bold()
-            }
-            .padding()
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(8)
+        HStack() {
+            Text("Net Position")
+            Spacer()
+            Text(data.accountsTotal, format: .currency(code: "AUD"))
+                .font(.title3)
+                .bold()
         }
     }
 }
@@ -31,6 +26,7 @@ struct AccountsTotalView_Previews: PreviewProvider {
         let data = AppDataModel()
         
         data.accounts = accountsPreviewData
+        data.accountsTotal = 1039.19
         
         return data
     }()

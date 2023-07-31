@@ -29,6 +29,12 @@ struct Transaction: Codable, Hashable {
     let MerchantLogo: String?
     let MerchantName: String?
     let CategoryList: [String]?
+    
+    
+    
+//    var month: String {
+//        dateParsed.formatted(.dateTime.year().month(.wide))
+//    }
 }
 
 struct TransactionResponse: Codable {
