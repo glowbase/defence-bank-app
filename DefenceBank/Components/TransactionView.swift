@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TransactionView: View {
+    @State private var showingSheet = false
+    
     var transaction: Transaction
     
     var body: some View {
@@ -18,13 +20,14 @@ struct TransactionView: View {
                     .aspectRatio(contentMode: .fill)
             }
             .frame(width: 50, height: 50)
-            .background(Color(.secondarySystemBackground))
-            .cornerRadius(25)
-            .padding([.bottom], 12)
+            .cornerRadius(10)
             
             HStack() {
-                Text(transaction.MerchantName ?? transaction.LongDescription ?? "")
-                
+                VStack() {
+                    Text((transaction.MerchantName ?? transaction.LongDescription ?? "").decode)
+                        .frame(width: .infinity, height: 18)
+                        .truncationMode(.tail)
+                }
                 Spacer()
                 
                 if (transaction.DebitAmount == 0.0) {
@@ -35,6 +38,13 @@ struct TransactionView: View {
                         .foregroundColor(.red)
                 }
             }
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            showingSheet.toggle()
+        }
+        .sheet(isPresented: $showingSheet) {
+            TransactionSheetView(transaction: transaction)
         }
     }
 }

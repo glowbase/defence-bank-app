@@ -27,8 +27,6 @@ struct TransactionsView: View {
                     self.data.transactions = transactionsPreviewData
                 } else {
                     self.data.transactions = getTransactions(account_number: account.AccountNumber)
-                    
-                    print(self.data.transactions)
                 }
             }
         }
