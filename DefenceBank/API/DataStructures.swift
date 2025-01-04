@@ -10,14 +10,14 @@ import Foundation
 struct Account: Codable, Hashable {
     let AccountNumber: String
     let Description: String
-    let CurrentBalance: Double
+    let CurrentBalance: Double?
     let AvailableBalance: Double
-    let ClassDescription: String
+    let ClassDescription: String?
 }
 
 struct Transaction: Codable, Hashable {
     let AccountNumber: String?
-    let CreateDate: String?
+    let CreateDate: String
     let DebitAmount: Double
     let CreditAmount: Double
     let Balance: Double
@@ -29,16 +29,33 @@ struct Transaction: Codable, Hashable {
     let MerchantLogo: String?
     let MerchantName: String?
     let CategoryList: [String]?
-    
-    
-    
-//    var month: String {
-//        dateParsed.formatted(.dateTime.year().month(.wide))
-//    }
 }
 
 struct TransactionResponse: Codable {
     let TransactionDetails: [Transaction]?
+}
+
+struct IdentifiableTransaction: Identifiable {
+    let id: Double
+    let transaction: Transaction
+    
+    init(transaction: Transaction) {
+        self.transaction = transaction
+        self.id = transaction.ImmutableTransactionId ?? 0.0
+    }
+}
+
+struct Uncollected: Codable, Hashable {
+    let Amount: Double
+    let CreditAmount: Double
+    let DebitAmount: Double
+    let EffectiveDate: String
+    let Description: String
+    let MerchantName: String
+}
+
+struct UncollectedResponse: Codable {
+    let UncollectedFunds: [Uncollected]?
 }
 
 struct Credentials: Decodable {

@@ -21,13 +21,13 @@ var transactionPreviewData = Transaction(
     DebitAmount: 103.64,
     CreditAmount: 0.0,
     Balance: 402.6,
-    Description: "Place holder transaction",
-    LongDescription: "Place holder transaction",
+    Description: "Description",
+    LongDescription: "Long Description",
     TransactionCodeDescription: "",
     ImmutableTransactionId: 903894508392,
     CanLookupMerchant: false,
     MerchantLogo: "",
-    MerchantName: "Place holder transaction",
+    MerchantName: "Merchant Name",
     CategoryList: [
         "Food/Drink"
     ]

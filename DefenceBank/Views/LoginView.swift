@@ -13,8 +13,8 @@ struct LoginView: View {
     @State private var member_number:String = ""
     @State private var password:String = ""
     
-    func login(member_number:String, password:String) {
-        let cookie = getCookie(
+    func login(member_number:String, password:String) async {
+        let cookie = await getCookie(
             member_number: member_number,
             password: password
         )
@@ -45,7 +45,7 @@ struct LoginView: View {
         // this and then show get a new cookie using saved credentials
         let credentials = getCredentials()
         
-        print("PRE-LOGIN: \(credentials.Cookie)")
+        print("COOKIE: \(credentials.Cookie)")
         
         // No cookie saved
         if credentials.Cookie == "" {
@@ -104,10 +104,13 @@ struct LoginView: View {
                 
                 // MARK: Login Button
                 Button(action: {
-                    login(
-                        member_number: $member_number.wrappedValue,
-                        password: $password.wrappedValue
-                    )
+                    // Launch async code inside a Task
+                    Task {
+                        await login(
+                            member_number: $member_number.wrappedValue,
+                            password: $password.wrappedValue
+                        )
+                    }
                 }, label: {
                     HStack {
                         Spacer()
@@ -125,7 +128,7 @@ struct LoginView: View {
                     .foregroundColor(.primary)
                 
                 NavigationLink(
-                    destination: AccountsView().navigationBarBackButtonHidden(true),
+                    destination: DashboardView().navigationBarBackButtonHidden(true),
                     isActive: $showAccountsView
                 ) { EmptyView() }
             }

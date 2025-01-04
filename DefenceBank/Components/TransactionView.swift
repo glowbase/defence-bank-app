@@ -8,49 +8,115 @@
 import SwiftUI
 
 struct TransactionView: View {
-    @State private var showingSheet = false
-    
     var transaction: Transaction
     
     var body: some View {
-        HStack() {
-            AsyncImage(url: URL(string: transaction.MerchantLogo ?? "")) { image in
-                image.image?
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
+        HStack {
+            // Display the merchant's logo with rounded corners (if available)
+            if let imageUrl = transaction.MerchantLogo, let url = URL(string: imageUrl) {
+                AsyncImage(url: url) { phase in
+                    switch phase {
+                    case .empty:
+                        ProgressView()
+                            .frame(width: 50, height: 50)
+                            .background(Color.gray.opacity(0.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    case .success(let image):
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 50, height: 50)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    case .failure:
+                        Image(systemName: "photo.fill")
+                            .frame(width: 50, height: 50)
+                            .background(Color.gray.opacity(0.2))
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    @unknown default:
+                        EmptyView()
+                    }
+                }
+            } else {
+                // Fallback if no image is available
+                Image(systemName: "photo.fill")
+                    .frame(width: 50, height: 50)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            .frame(width: 50, height: 50)
-            .cornerRadius(10)
             
-            HStack() {
-                VStack() {
-                    Text((transaction.MerchantName ?? transaction.LongDescription ?? "").decode)
-                        .frame(width: .infinity, height: 18)
-                        .truncationMode(.tail)
-                }
-                Spacer()
-                
-                if (transaction.DebitAmount == 0.0) {
-                    Text(transaction.CreditAmount, format: .currency(code: "AUD"))
-                        .foregroundColor(.green)
+            VStack(alignment: .leading) {
+                // Merchant Name - if "Round Up" is found in the description, split it
+                if let longDescription = transaction.LongDescription, longDescription.contains("Round Up") {
+                    Text("Round Up")
+                        .font(.body)
+                        .bold()
                 } else {
-                    Text(transaction.DebitAmount, format: .currency(code: "AUD"))
+                    // Default merchant name
+                    Text(transaction.MerchantName ?? transaction.LongDescription ?? "Unknown Merchant")
+                        .font(.body)
+                        .bold()
+                }
+                
+                // Description - if "Round Up" is found, take the part after the ":"
+                if let longDescription = transaction.LongDescription, longDescription.contains("Round Up") {
+                    let parts = longDescription.split(separator: ":")
+                    Text(parts.count > 1 ? parts.last?.trimmingCharacters(in: .whitespaces) ?? "" : "No description")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                } else {
+                    // Default description
+                    Text(transaction.Description ?? "No description available")
+                        .font(.caption)
+                        .foregroundColor(.gray)
+                }
+            }
+            
+            Spacer()  // This pushes the amount to the right side
+            
+            // Display Debit or Credit amount
+            VStack(alignment: .trailing) {
+                if transaction.DebitAmount > 0 {
+                    // Show debit amount in red
+                    Text("Debit")
+                        .font(.footnote)
                         .foregroundColor(.red)
+                    Text(formatAmount(transaction.DebitAmount))
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.red)
+                        .monospaced()
+                } else if transaction.CreditAmount > 0 {
+                    // Show credit amount in green
+                    Text("Credit")
+                        .font(.footnote)
+                        .foregroundColor(.green)
+                    Text(formatAmount(transaction.CreditAmount))
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.green)
+                        .monospaced()
+                } else {
+                    // If neither debit nor credit, show a placeholder
+                    Text("N/A")
+                        .font(.footnote)
+                        .foregroundColor(.gray)
                 }
             }
         }
-        .contentShape(Rectangle())
-        .onTapGesture {
-            showingSheet.toggle()
-        }
-        .sheet(isPresented: $showingSheet) {
-            TransactionSheetView(transaction: transaction)
-        }
+        .padding(.vertical, 8)
+    }
+
+    // Format the amount as currency with a proper symbol
+    func formatAmount(_ amount: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter.string(from: NSNumber(value: amount)) ?? "$0.00"
     }
 }
 
 struct TransactionView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionView(transaction: transactionPreviewData)
+            .padding()
     }
 }

@@ -1,23 +1,23 @@
 //
-//  AccountView.swift
+//  AccountRowView.swift
 //  DefenceBank
 //
-//  Created by Cooper on 15/1/2023.
+//  Created by Cooper Beltrami on 1/1/2025.
 //
 
 import SwiftUI
 
 struct AccountView: View {
-    @State private var showTransactionsView: Bool = false
     var account: Account
     
     var body: some View {
-        ZStack() {
+        ZStack {
             VStack(alignment: .leading, spacing: 22) {
                 HStack {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(account.Description)
-                            .font(.title3)
+                            .font(.body)
+                            .bold()
                         Text(account.AccountNumber)
                             .foregroundColor(.white.opacity(0.8))
                             .font(.subheadline)
@@ -26,16 +26,24 @@ struct AccountView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         Text(account.AvailableBalance, format: .currency(code: "AUD"))
                             .bold()
+                            .monospaced()
                     }
                 }
             }
             .foregroundColor(.white)
         }
+        .padding([.top, .bottom], 2)
+        .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
     }
 }
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView(account: accountPreviewData)
+            .previewLayout(.sizeThatFits)
+            .padding()
+            .background(Color.red)
+            .cornerRadius(8)
+            .padding()
     }
 }
