@@ -40,6 +40,8 @@
 		1E6183732D2CA56400B88338 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183722D2CA56200B88338 /* AccountsView.swift */; };
 		1E6183752D2CA62D00B88338 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183742D2CA62700B88338 /* SettingsView.swift */; };
 		1E6183772D2CEA0000B88338 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183762D2CE9ED00B88338 /* CardView.swift */; };
+		1E6183792D2D298800B88338 /* CardAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183782D2D298400B88338 /* CardAlertsView.swift */; };
+		1E61837B2D2D420C00B88338 /* PaydayEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61837A2D2D420200B88338 /* PaydayEditView.swift */; };
 		1E846A7829751E8F00FEE80D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
 		1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E846A7A29753F5600FEE80D /* KeychainAccess */; };
 		1E91E728297BA740003501BC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91E727297BA740003501BC /* TransactionView.swift */; };
@@ -107,6 +109,8 @@
 		1E6183722D2CA56200B88338 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
 		1E6183742D2CA62700B88338 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1E6183762D2CE9ED00B88338 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1E6183782D2D298400B88338 /* CardAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAlertsView.swift; sourceTree = "<group>"; };
+		1E61837A2D2D420200B88338 /* PaydayEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaydayEditView.swift; sourceTree = "<group>"; };
 		1E846A7729751E8F00FEE80D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -213,6 +217,7 @@
 				1E6183712D2CA4FA00B88338 /* Cards */,
 				1E6183682D2BF5E300B88338 /* WeeklyDebitGraphView.swift */,
 				1E61834F2D26156300B88338 /* PaydayView.swift */,
+				1E61837A2D2D420200B88338 /* PaydayEditView.swift */,
 				1E6183512D2625FF00B88338 /* NetPositionView.swift */,
 				1E91E727297BA740003501BC /* TransactionView.swift */,
 				1E61835B2D2955F300B88338 /* UncollectedView.swift */,
@@ -239,6 +244,7 @@
 				1E6183762D2CE9ED00B88338 /* CardView.swift */,
 				1E61836A2D2C955600B88338 /* CardControlGroupView.swift */,
 				1E61836F2D2CA22500B88338 /* CardQuickActionsView.swift */,
+				1E6183782D2D298400B88338 /* CardAlertsView.swift */,
 				1E61836D2D2CA1C500B88338 /* CardControlView.swift */,
 			);
 			path = Cards;
@@ -385,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E61837B2D2D420C00B88338 /* PaydayEditView.swift in Sources */,
 				1E4B8E892973DE120021FCC6 /* LoginView.swift in Sources */,
 				1E846A7829751E8F00FEE80D /* Methods.swift in Sources */,
 				1E6183652D2BE6FA00B88338 /* FaceID.swift in Sources */,
@@ -392,6 +399,7 @@
 				1E4B8E9729740A360021FCC6 /* PreviewData.swift in Sources */,
 				1E61835C2D2955F800B88338 /* UncollectedView.swift in Sources */,
 				1E61836E2D2CA1C800B88338 /* CardControlView.swift in Sources */,
+				1E6183792D2D298800B88338 /* CardAlertsView.swift in Sources */,
 				1ECCA3262A77554700096FFE /* Extensions.swift in Sources */,
 				1E6183522D26260400B88338 /* NetPositionView.swift in Sources */,
 				1E61834E2D25683200B88338 /* AccountView.swift in Sources */,

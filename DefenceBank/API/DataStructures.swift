@@ -116,3 +116,8 @@ struct LinkedAccount: Codable, Hashable {
 struct CardResponse: Codable {
     let Cards: [Card]?
 }
+
+struct PaydayCountdown {
+    let NextPayday: Date
+    let Frequency: String
+}

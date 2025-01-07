@@ -86,8 +86,13 @@ struct CardsView: View {
                         NavigationLink(destination: CardControlView(slider: selectedCard)) {
                             CardControlGroupView(image: "switch.2", title: "Card Controls", card: selectedCard.Card)
                         }
-                        CardControlGroupView(image: "creditcard.trianglebadge.exclamationmark", title: "Lost or Stolen Card", card: selectedCard.Card)
-                        CardControlGroupView(image: "bell.badge", title: "Card Alerts", card: selectedCard.Card)
+                        NavigationLink(destination: EmptyView()) {
+                            CardControlGroupView(image: "creditcard.trianglebadge.exclamationmark", title: "Lost or Stolen Card", card: selectedCard.Card)
+                        }
+                        NavigationLink(destination: CardAlertView(slider: selectedCard)) {
+                            CardControlGroupView(image: "bell.badge", title: "Card Alerts", card: selectedCard.Card)
+                        }
+                        
                     }
                     .scrollDisabled(true)
                 }

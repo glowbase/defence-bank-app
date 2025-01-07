@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct PaydayView: View {
+    @State private var showSheet: Bool = false
+    
     var body: some View {
         VStack {
-            Text("Tomorrow")
-                .bold()
-                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                Text("Tomorrow")
+                    .bold()
+                Spacer()
+                Image(systemName: "pencil")
+                    .bold()
+                    .foregroundColor(.red)
+                    .onTapGesture {
+                        showSheet.toggle()
+                    }
+            }
 
             ProgressView(value: 0.5, total: 1)
                 .progressViewStyle(LinearProgressViewStyle(tint: .red))
@@ -22,13 +32,17 @@ struct PaydayView: View {
                 .padding([.bottom], 4)
             
             HStack {
-                Text("Next Pay: Thu 16 Jan, 2025.")
+                Text("Next Pay: Thu 16 Jan, 2025")
                 Spacer()
                 Text("Fortnightly")
             }
             .font(.footnote)
             .foregroundColor(.secondary)
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .sheet(isPresented: $showSheet) {
+            PaydayEditView()
+                .presentationDetents([.height(280)])
         }
     }
 }
