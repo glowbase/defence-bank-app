@@ -17,7 +17,7 @@ struct PaydayView: View {
             ProgressView(value: 0.5, total: 1)
                 .progressViewStyle(LinearProgressViewStyle(tint: .red))
                 .scaleEffect(x: 1, y: 4, anchor: .center)
-                .frame(height: 12)
+                .frame(height: 15)
                 .cornerRadius(10)
                 .padding([.bottom], 4)
             

@@ -15,6 +15,7 @@ let URL_AUTH = "\(BASE_URL)/api/ajaxlogin/login"
 let URL_ACCOUNTS = "\(BASE_URL)/platform.axd?u=account%2FGetAccountsBasicData"
 let URL_TRANSACTIONS = "\(BASE_URL)/platform.axd?u=transaction%2FGetTransactionHistoryEnhanced"
 let URL_UNCOLLECTED = "\(BASE_URL)/platform.axd?u=account%2FGetUncollectedFunds"
+let URL_CARD = "\(BASE_URL)//platform.axd?u=Card%2FGetCards"
 
 var isPreview: Bool {
     return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
@@ -37,6 +38,18 @@ func getCredentials() -> Credentials {
     )
     
     return credentials
+}
+
+func saveCookie(cookie: String) {
+    let credentials = getCredentials()
+    
+    let updatedCreds = Credentials(
+        Cookie: cookie,
+        MemberNumber: credentials.MemberNumber,
+        Password: credentials.Password
+    )
+    
+    saveCredentials(credentials: updatedCreds)
 }
 
 func makeRequest(urlString: String, httpMethod: String, body: [String: AnyHashable]? = nil, headers: [String: String]? = nil) async throws -> (Data, URLResponse) {
@@ -112,13 +125,7 @@ func refreshCookie() async {
         // Return the "DigitalBanking" cookie, if available
         let authCookie = cookies["DigitalBanking"] ?? ""
         
-        let credentials = Credentials(
-            Cookie: authCookie,
-            MemberNumber: credentials.MemberNumber,
-            Password: credentials.Password
-        )
-        
-        saveCredentials(credentials: credentials)
+        saveCookie(cookie: authCookie)
     } catch {
         print("Error refreshing cookie: \(error)")
     }
@@ -242,6 +249,20 @@ func getUncollected(account_number: String) async -> [Uncollected] {
     
     if let uncollected: UncollectedResponse = await fetchData(urlString: URL_UNCOLLECTED, body: body) {
         return uncollected.UncollectedFunds ?? []
+    }
+    
+    return []
+}
+
+func getCards() async -> [Card] {
+    let body: [String: AnyHashable] = [
+        "ForceFetch": false,
+        "IncludeCardControls": true,
+//        "Statuses": []
+    ]
+    
+    if let cards: CardResponse = await fetchData(urlString: URL_CARD, body: body) {
+        return cards.Cards ?? []
     }
     
     return []

@@ -13,7 +13,9 @@ struct NetPositionView: View {
     var body: some View {
         HStack {
             Text(balance, format: .currency(code: "AUD"))
+                .monospaced()
                 .font(.title2)
+                .bold()
             Spacer()
         }
         .padding([.top, .bottom], 4)

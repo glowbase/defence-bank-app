@@ -33,15 +33,24 @@ struct TransactionsView: View {
                 }
                 .redacted(reason: .placeholder)
             } else {
-                Section(header: Text("Uncollected")) {
-                    ForEach(uncollected, id: \.self) { ufund in
-                        UncollectedView(uncollected: ufund)
+                if !uncollected.isEmpty {
+                    Section(header: Text("Uncollected")) {
+                        ForEach(uncollected, id: \.self) { ufund in
+                            UncollectedView(uncollected: ufund)
+                        }
                     }
                 }
                 
                 ForEach(groupedTransactions(), id: \.date) { group in
                     if let parsedDate = parseDate(group.date) {
-                        Section(header: Text(formatDate(parsedDate))) {
+                        Section(header:
+                            HStack {
+                                Text(formatDate(parsedDate))
+                                Spacer()
+                                Text(-group.total, format: .currency(code: "AUD"))
+                                    .monospacedDigit()
+                            }
+                        ) {
                             ForEach(group.transactions, id: \.self) { transaction in
                                 let identifiableTransaction = IdentifiableTransaction(transaction: transaction)
                                 
@@ -112,7 +121,7 @@ struct TransactionsView: View {
     }
 
     // Group the transactions by date (ignoring the time part) and apply search filtering
-    func groupedTransactions() -> [(date: String, transactions: [Transaction])] {
+    func groupedTransactions() -> [(date: String, transactions: [Transaction], total: Double)] {
         // Filter transactions based on the search query
         let filtered = filteredTransactions()
 
@@ -128,7 +137,14 @@ struct TransactionsView: View {
 
         // Sort the groups by date and reverse the order (from most recent to oldest)
         return grouped.keys.sorted().reversed().map { date in
-            (date: date, transactions: grouped[date]!)
+            // Filter transactions for this date
+            let transactions = grouped[date]!
+
+            // Calculate the total debited amount for this group
+            let totalDebited = transactions
+                .reduce(0) { $0 + $1.DebitAmount }
+
+            return (date: date, transactions: transactions, total: totalDebited)
         }
     }
 

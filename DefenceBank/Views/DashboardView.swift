@@ -15,7 +15,7 @@ struct DashboardView: View {
     
     var body: some View {
         List {
-            Section(header: Text("Payday").headerProminence(.standard)) {
+            Section(header: Text("Payday").headerProminence(.increased)) {
                 if is_loading || accounts.isEmpty {
                     PaydayView()
                         .redacted(reason: .placeholder)
@@ -23,7 +23,8 @@ struct DashboardView: View {
                     PaydayView()
                 }
             }
-            Section(header: Text("Accounts").headerProminence(.standard)) {
+            
+            Section(header: Text("Accounts").headerProminence(.increased)) {
                 if is_loading || accounts.isEmpty {
                     AccountView(account: accountPreviewData)
                         .redacted(reason: .placeholder)
@@ -40,7 +41,8 @@ struct DashboardView: View {
                     }
                 }
             }
-            Section(header: Text("Net Position").headerProminence(.standard)) {
+            
+            Section(header: Text("Net Position").headerProminence(.increased)) {
                 if is_loading || accounts.isEmpty {
                     NetPositionView(balance: 00000)
                         .redacted(reason: .placeholder)
@@ -78,10 +80,8 @@ struct DashboardView: View {
     }
 }
 
-struct DashboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            DashboardView()
-        }
+#Preview {
+    NavigationStack {
+        DashboardView()
     }
 }

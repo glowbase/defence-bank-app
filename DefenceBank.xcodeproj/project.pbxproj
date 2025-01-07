@@ -29,6 +29,17 @@
 		1E6183582D27837300B88338 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183572D27837200B88338 /* Helpers.swift */; };
 		1E61835A2D27B08000B88338 /* TransactionSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183592D27B07C00B88338 /* TransactionSearchView.swift */; };
 		1E61835C2D2955F800B88338 /* UncollectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61835B2D2955F300B88338 /* UncollectedView.swift */; };
+		1E61835E2D296A3600B88338 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61835D2D296A3500B88338 /* ContentView.swift */; };
+		1E6183602D296AB500B88338 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61835F2D296AB300B88338 /* CardsView.swift */; };
+		1E6183622D2A992F00B88338 /* CardSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183612D2A992F00B88338 /* CardSlider.swift */; };
+		1E6183652D2BE6FA00B88338 /* FaceID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183642D2BE6F500B88338 /* FaceID.swift */; };
+		1E6183692D2BF5EE00B88338 /* WeeklyDebitGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183682D2BF5E300B88338 /* WeeklyDebitGraphView.swift */; };
+		1E61836B2D2C955A00B88338 /* CardControlGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61836A2D2C955600B88338 /* CardControlGroupView.swift */; };
+		1E61836E2D2CA1C800B88338 /* CardControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61836D2D2CA1C500B88338 /* CardControlView.swift */; };
+		1E6183702D2CA22800B88338 /* CardQuickActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61836F2D2CA22500B88338 /* CardQuickActionsView.swift */; };
+		1E6183732D2CA56400B88338 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183722D2CA56200B88338 /* AccountsView.swift */; };
+		1E6183752D2CA62D00B88338 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183742D2CA62700B88338 /* SettingsView.swift */; };
+		1E6183772D2CEA0000B88338 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6183762D2CE9ED00B88338 /* CardView.swift */; };
 		1E846A7829751E8F00FEE80D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
 		1E846A7B29753F5600FEE80D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E846A7A29753F5600FEE80D /* KeychainAccess */; };
 		1E91E728297BA740003501BC /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E91E727297BA740003501BC /* TransactionView.swift */; };
@@ -84,6 +95,18 @@
 		1E6183572D27837200B88338 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		1E6183592D27B07C00B88338 /* TransactionSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchView.swift; sourceTree = "<group>"; };
 		1E61835B2D2955F300B88338 /* UncollectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UncollectedView.swift; sourceTree = "<group>"; };
+		1E61835D2D296A3500B88338 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1E61835F2D296AB300B88338 /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		1E6183612D2A992F00B88338 /* CardSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSlider.swift; sourceTree = "<group>"; };
+		1E6183642D2BE6F500B88338 /* FaceID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceID.swift; sourceTree = "<group>"; };
+		1E6183672D2BF13100B88338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1E6183682D2BF5E300B88338 /* WeeklyDebitGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyDebitGraphView.swift; sourceTree = "<group>"; };
+		1E61836A2D2C955600B88338 /* CardControlGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardControlGroupView.swift; sourceTree = "<group>"; };
+		1E61836D2D2CA1C500B88338 /* CardControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardControlView.swift; sourceTree = "<group>"; };
+		1E61836F2D2CA22500B88338 /* CardQuickActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardQuickActionsView.swift; sourceTree = "<group>"; };
+		1E6183722D2CA56200B88338 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
+		1E6183742D2CA62700B88338 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		1E6183762D2CE9ED00B88338 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		1E846A7729751E8F00FEE80D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
 		1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -149,6 +172,8 @@
 		1E4B8E792973D49D0021FCC6 /* DefenceBank */ = {
 			isa = PBXGroup;
 			children = (
+				1E6183672D2BF13100B88338 /* Info.plist */,
+				1E6183632D2A993B00B88338 /* Helpers */,
 				1E846A7629751E8800FEE80D /* API */,
 				1E4B8E90297408C00021FCC6 /* Components */,
 				1E4B8E8A2973FC6D0021FCC6 /* Views */,
@@ -171,7 +196,11 @@
 		1E4B8E8A2973FC6D0021FCC6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1E6183742D2CA62700B88338 /* SettingsView.swift */,
 				1E4B8E882973DE120021FCC6 /* LoginView.swift */,
+				1E61835F2D296AB300B88338 /* CardsView.swift */,
+				1E61835D2D296A3500B88338 /* ContentView.swift */,
+				1E6183722D2CA56200B88338 /* AccountsView.swift */,
 				1E4B8E8B2973FC7C0021FCC6 /* DashboardView.swift */,
 				1E3734892977A50E0089A364 /* TransactionsView.swift */,
 			);
@@ -181,6 +210,8 @@
 		1E4B8E90297408C00021FCC6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1E6183712D2CA4FA00B88338 /* Cards */,
+				1E6183682D2BF5E300B88338 /* WeeklyDebitGraphView.swift */,
 				1E61834F2D26156300B88338 /* PaydayView.swift */,
 				1E6183512D2625FF00B88338 /* NetPositionView.swift */,
 				1E91E727297BA740003501BC /* TransactionView.swift */,
@@ -191,6 +222,26 @@
 				1E6183592D27B07C00B88338 /* TransactionSearchView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		1E6183632D2A993B00B88338 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1E6183642D2BE6F500B88338 /* FaceID.swift */,
+				1E6183612D2A992F00B88338 /* CardSlider.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1E6183712D2CA4FA00B88338 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				1E6183762D2CE9ED00B88338 /* CardView.swift */,
+				1E61836A2D2C955600B88338 /* CardControlGroupView.swift */,
+				1E61836F2D2CA22500B88338 /* CardQuickActionsView.swift */,
+				1E61836D2D2CA1C500B88338 /* CardControlView.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		1E846A7629751E8800FEE80D /* API */ = {
@@ -336,21 +387,32 @@
 			files = (
 				1E4B8E892973DE120021FCC6 /* LoginView.swift in Sources */,
 				1E846A7829751E8F00FEE80D /* Methods.swift in Sources */,
+				1E6183652D2BE6FA00B88338 /* FaceID.swift in Sources */,
 				1E91E728297BA740003501BC /* TransactionView.swift in Sources */,
 				1E4B8E9729740A360021FCC6 /* PreviewData.swift in Sources */,
 				1E61835C2D2955F800B88338 /* UncollectedView.swift in Sources */,
+				1E61836E2D2CA1C800B88338 /* CardControlView.swift in Sources */,
 				1ECCA3262A77554700096FFE /* Extensions.swift in Sources */,
 				1E6183522D26260400B88338 /* NetPositionView.swift in Sources */,
 				1E61834E2D25683200B88338 /* AccountView.swift in Sources */,
+				1E6183732D2CA56400B88338 /* AccountsView.swift in Sources */,
 				1E4B8E7B2973D49D0021FCC6 /* DefenceBankApp.swift in Sources */,
+				1E6183602D296AB500B88338 /* CardsView.swift in Sources */,
+				1E6183692D2BF5EE00B88338 /* WeeklyDebitGraphView.swift in Sources */,
+				1E6183772D2CEA0000B88338 /* CardView.swift in Sources */,
+				1E61836B2D2C955A00B88338 /* CardControlGroupView.swift in Sources */,
 				1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */,
 				1EF14A6E2A8B1E6D0034DD5D /* TransactionDetailView.swift in Sources */,
+				1E6183702D2CA22800B88338 /* CardQuickActionsView.swift in Sources */,
 				1E4B8E952974096B0021FCC6 /* DataStructures.swift in Sources */,
+				1E61835E2D296A3600B88338 /* ContentView.swift in Sources */,
 				1E6183542D276DB300B88338 /* AccountEditView.swift in Sources */,
+				1E6183752D2CA62D00B88338 /* SettingsView.swift in Sources */,
 				1E6183502D2615AD00B88338 /* PaydayView.swift in Sources */,
 				1E61835A2D27B08000B88338 /* TransactionSearchView.swift in Sources */,
 				1E6183582D27837300B88338 /* Helpers.swift in Sources */,
 				1E4B8E8C2973FC7C0021FCC6 /* DashboardView.swift in Sources */,
+				1E6183622D2A992F00B88338 /* CardSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,14 +611,16 @@
 				DEVELOPMENT_TEAM = 2GXF8UVUB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DefenceBank/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Defence Bank";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app requires Face ID to authenticate";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,14 +646,16 @@
 				DEVELOPMENT_TEAM = 2GXF8UVUB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DefenceBank/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Defence Bank";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.finance";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "This app requires Face ID to authenticate";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

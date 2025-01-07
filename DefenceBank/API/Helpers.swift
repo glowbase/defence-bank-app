@@ -35,3 +35,7 @@ func parseDate(_ dateString: String) -> Date? {
     print("Failed to parse date: \(dateString)")
     return nil
 }
+
+func isRunningOnSimulator() -> Bool {
+    return TARGET_OS_SIMULATOR != 0
+}

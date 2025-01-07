@@ -63,3 +63,56 @@ struct Credentials: Decodable {
     var MemberNumber: String
     var Password: String
 }
+
+struct Card: Codable, Hashable {
+    let `Type`: String
+    let Number: String
+    let Index: Int
+    let ControlGroups: [CardControlGroup]
+    let LinkedAccounts: [LinkedAccount]
+}
+
+struct CardControlGroup: Codable, Hashable {
+    let Id: Int
+    let Name: String
+    let Description: String
+    let DisplayOrder: Int
+    let Controls: [CardControl]
+}
+
+struct CardControl: Codable, Hashable {
+    let Name: String
+    let Description: String
+    let DisplayOrder: Int
+    let DisplayGroup: String
+    let Scope: Int
+    let `Type`: String
+    let Id: Int
+    let Value: String
+}
+
+struct SliderItem: Identifiable {
+    private(set) var id: UUID = .init()
+    var Background: String
+    var Title: String
+    var SubTitle: String
+    var Card: Card
+}
+
+struct Control {
+    let id: UUID
+    let Name: String
+    let Description: String
+    var isEnabled: Bool  // State variable for the toggle (on/off)
+}
+
+struct LinkedAccount: Codable, Hashable {
+    let AccountNumber: String
+    let AccountType: String
+    let Name: String
+    let Relationships: String
+}
+
+struct CardResponse: Codable {
+    let Cards: [Card]?
+}

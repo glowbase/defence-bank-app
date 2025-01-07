@@ -33,5 +33,21 @@ var transactionPreviewData = Transaction(
     ]
 )
 
+var cardPreviewData = Card(
+    Type: "VISA DEBIT - CAMO ARMY GREEN",
+    Number: "xxxxxxxxxxxx1234",
+    Index: 0,
+    ControlGroups: [],
+    LinkedAccounts: []
+)
+
+var cardSliderPreviewData = SliderItem(
+    Background: "army",
+    Title: "Everyday",
+    SubTitle: "20302942",
+    Card: cardPreviewData
+)
+
 var transactionsPreviewData = [Transaction](repeating: transactionPreviewData, count: 5)
 var accountsPreviewData = [Account](repeating: accountPreviewData, count: 2)
+var cardsPreviewData = [SliderItem](repeating: cardSliderPreviewData, count: 3)
