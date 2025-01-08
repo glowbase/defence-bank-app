@@ -33,7 +33,6 @@ struct AccountView: View {
             .foregroundColor(.white)
         }
         .padding([.top, .bottom], 2)
-        .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
     }
 }
 
@@ -42,7 +41,7 @@ struct AccountView_Previews: PreviewProvider {
         AccountView(account: accountPreviewData)
             .previewLayout(.sizeThatFits)
             .padding()
-            .background(Color.red)
+            .background(Color.red.gradient)
             .cornerRadius(8)
             .padding()
     }

@@ -51,7 +51,7 @@ struct CardsView: View {
                 .redacted(reason: .placeholder)
                 
                 CardQuickActionsView(card: cardPreviewData)
-                    .padding([.top, .bottom], 12)
+                    .padding(.top, 16)
                     .redacted(reason: .placeholder)
                 
                 List {
@@ -61,6 +61,7 @@ struct CardsView: View {
                 }
                 .scrollDisabled(true)
                 .redacted(reason: .placeholder)
+                .scrollContentBackground(.hidden)
             } else {
                 CardSlider(data: $items, activeId: $activeId) { $item in
                     CardView(slider: item, placeholder: isLoading)
@@ -80,7 +81,7 @@ struct CardsView: View {
                 
                 if let selectedCard = items.first(where: { $0.id == activeId }) {
                     CardQuickActionsView(card: selectedCard.Card)
-                        .padding([.top, .bottom], 16)
+                        .padding(.top, 16)
                     
                     List {
                         NavigationLink(destination: CardControlView(slider: selectedCard)) {
@@ -92,9 +93,9 @@ struct CardsView: View {
                         NavigationLink(destination: CardAlertView(slider: selectedCard)) {
                             CardControlGroupView(image: "bell.badge", title: "Card Alerts", card: selectedCard.Card)
                         }
-                        
                     }
                     .scrollDisabled(true)
+                    .scrollContentBackground(.hidden)
                 }
             }
         }

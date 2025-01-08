@@ -65,6 +65,11 @@ struct DashboardView: View {
         Task {
             accounts = await getAccounts()
             net_position = getNetPosition(accounts: accounts)
+            
+            if accounts.isEmpty || net_position == 0 {
+                loadAccounts()
+            }
+            
             is_loading = false
         }
     }

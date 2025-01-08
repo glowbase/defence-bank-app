@@ -25,6 +25,10 @@ struct ContentView: View {
                 .tabItem {
                     Label("Cards", systemImage: "creditcard.fill")
                 }
+            AccountsView()
+                .tabItem {
+                    Label("Payments", systemImage: "dollarsign.arrow.trianglehead.counterclockwise.rotate.90")
+                }
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "person.crop.circle")

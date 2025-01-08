@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct PaydayEditView: View {
+    @Binding var paydayCountdown: PaydayCountdown?  // Binding to the payday data
+    
     @State private var nextPayday: Date = Date()
-    @State private var selectedOption: String = "Fortnightly"
+    @State private var frequency: String = "Fortnightly"
     
     let options = ["Weekly", "Fortnightly", "Monthly"]
     
@@ -26,18 +28,41 @@ struct PaydayEditView: View {
             List {
                 DatePicker("Next Payday", selection: $nextPayday, displayedComponents: .date)
                     .listRowBackground(Color.clear)
-                Picker("Pay Cycle", selection: $selectedOption) {
+                    .onChange(of: nextPayday) { newValue in
+                        savePaydayData()  // Save data when the date is changed
+                    }
+                
+                Picker("Pay Cycle", selection: $frequency) {
                     ForEach(options, id: \.self) { option in
                         Text(option)
                     }
                 }
                 .listRowBackground(Color.clear)
+                .onChange(of: frequency) { newValue in
+                    savePaydayData()  // Save data when the frequency is changed
+                }
             }
             .scrollDisabled(true)
+            .scrollContentBackground(.hidden)
         }
-        .navigationBarTitle("Edit Payday", displayMode: .inline)
+        .onAppear {
+            if let currentPayday = paydayCountdown {
+                self.nextPayday = currentPayday.NextPayday
+                self.frequency = currentPayday.Frequency
+            }
+        }
+    }
+    
+    // Function to save the payday data to UserDefaults
+    private func savePaydayData() {
+        let updatedPayday = PaydayCountdown(NextPayday: nextPayday, Frequency: frequency)
+        paydayCountdown = updatedPayday
+        UserDefaultsManager.shared.save(updatedPayday, forKey: "paydayCountdown")
     }
 }
-#Preview {
-    PaydayEditView()
-}
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    return formatter
+}()

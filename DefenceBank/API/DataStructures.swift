@@ -5,6 +5,7 @@
 //  Created by Cooper on 15/1/2023.
 //
 
+import CloudKit
 import Foundation
 
 struct Account: Codable, Hashable {
@@ -117,7 +118,7 @@ struct CardResponse: Codable {
     let Cards: [Card]?
 }
 
-struct PaydayCountdown {
+struct PaydayCountdown: Codable {
     let NextPayday: Date
     let Frequency: String
 }
