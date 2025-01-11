@@ -101,6 +101,8 @@ struct CardsView: View {
         }
         .onAppear() {
             Task {
+                if !cards.isEmpty { return }
+                
                 cards = await getCards()
                 
                 items = cards.map {card in

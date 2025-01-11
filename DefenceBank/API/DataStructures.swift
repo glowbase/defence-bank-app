@@ -122,3 +122,9 @@ struct PaydayCountdown: Codable {
     let NextPayday: Date
     let Frequency: String
 }
+
+struct CategoryGroupedTransactions: Codable {
+    let Transactions: [Transaction]
+    let Category: String
+    let Total: Double
+}

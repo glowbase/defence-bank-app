@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct DashboardView: View {
-    @State private var accounts: [Account] = []
-    @State private var is_loading: Bool = true
-    @State private var net_position: Double = 0
-    @State private var query: String = ""
+    @State var transactions: [Transaction] = []
+    
+    @State private var isLoading: Bool = true
+    @State private var groupedTransactionsByCategory: [CategoryGroupedTransactions] = []
     
     var body: some View {
         List {
-            Section(header: Text("Payday").headerProminence(.increased)) {
-                if is_loading || accounts.isEmpty {
+            Section(header: Text("Next Payday").headerProminence(.increased)) {
+                if isLoading || groupedTransactionsByCategory.isEmpty {
                     PaydayView()
                         .redacted(reason: .placeholder)
                 } else {
@@ -24,64 +24,49 @@ struct DashboardView: View {
                 }
             }
             
-            Section(header: Text("Accounts").headerProminence(.increased)) {
-                if is_loading || accounts.isEmpty {
-                    AccountView(account: accountPreviewData)
-                        .redacted(reason: .placeholder)
-                    AccountView(account: accountPreviewData)
-                        .redacted(reason: .placeholder)
+            Section(header: Text("Weekly Transactions").headerProminence(.increased)) {
+                TransactionsGraphView(transactions: $transactions)
+            }
+            
+            Section(header: Text("Spending Habbits").headerProminence(.increased)) {
+                if isLoading || groupedTransactionsByCategory.isEmpty {
+                    ForEach(groupedTransactionsPreviewData, id: \.Category) { group in
+                        CategoryView(group: group)
+                            .redacted(reason: .placeholder)
+                    }
                 } else {
-                    ForEach(Array(accounts.enumerated()), id: \.element) { index, account in
-                        if !account.Description.starts(with: "Close") && (query.isEmpty || account.Description.lowercased().contains(query.lowercased())) {
-                            NavigationLink(destination: TransactionsView(account: account)) {
-                                AccountView(account: account)
+                    ForEach(groupedTransactionsByCategory, id: \.Category) { group in
+                        if group.Category != "Miscellaneous" {
+                            NavigationLink(destination: CategoryTransactionsView(category: group)) {
+                                CategoryView(group: group)
                             }
-                            .listRowBackground(LinearGradient(gradient: Gradient(colors: [.red, .accentColor]), startPoint: .leading, endPoint: .trailing))
                         }
                     }
                 }
             }
-            
-            Section(header: Text("Net Position").headerProminence(.increased)) {
-                if is_loading || accounts.isEmpty {
-                    NetPositionView(balance: 00000)
-                        .redacted(reason: .placeholder)
-                } else {
-                    NetPositionView(balance: net_position)
-                }
-            }
         }
-        .searchable(text: $query)
         .navigationTitle("Dashboard")
-        .onAppear {
-            loadAccounts()
+        .onAppear() {
+            loadData()
         }
         .refreshable {
-            loadAccounts()
+            loadData()
         }
     }
     
-    func loadAccounts() {
+    func loadData() {
         Task {
-            accounts = await getAccounts()
-            net_position = getNetPosition(accounts: accounts)
+            let defaultAccount = UserDefaultsManager.shared.fetch(forKey: "default_account", type: Account.self)
             
-            if accounts.isEmpty || net_position == 0 {
-                loadAccounts()
+            transactions = await getTransactions(account_number: defaultAccount?.AccountNumber ?? "")
+            groupedTransactionsByCategory = groupTransactionsByCategory(transactions)
+            
+            if groupedTransactionsByCategory.isEmpty || transactions.isEmpty {
+                loadData()
             }
             
-            is_loading = false
+            isLoading = false
         }
-    }
-    
-    func getNetPosition(accounts: [Account]) -> Double {
-        var totalBalanace: Double = 0
-        
-        for account in accounts {
-            totalBalanace += account.AvailableBalance
-        }
-        
-        return totalBalanace
     }
 }
 

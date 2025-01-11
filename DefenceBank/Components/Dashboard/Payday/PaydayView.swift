@@ -79,6 +79,8 @@ struct PaydayView: View {
         guard let daysUntil = components.day else { return "Next Pay: Not Set" }
         
         switch daysUntil {
+        case 0:
+            return "Today"
         case 1:
             return "Tomorrow"
         default:
@@ -92,7 +94,7 @@ struct PaydayView: View {
                 Text(daysUntilPaydayText)  // Show dynamic countdown text
                     .bold()
                 Spacer()
-                Image(systemName: "pencil")
+                Image(systemName: "gear")
                     .bold()
                     .foregroundColor(.red)
                     .onTapGesture {
@@ -130,8 +132,10 @@ struct PaydayView: View {
             }
         }
         .sheet(isPresented: $showSheet, onDismiss: loadData) {
-            PaydayEditView(paydayCountdown: $paydayCountdown)  // Pass a binding to the data
-                .presentationDetents([.height(280)])
+            NavigationView {
+                PaydayEditView(paydayCountdown: $paydayCountdown)  // Pass a binding to the data
+            }
+            .presentationDetents([.height(280)])
         }
         .onAppear {
             // Load saved payday data when the view appears

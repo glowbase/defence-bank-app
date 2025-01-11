@@ -11,13 +11,15 @@ struct ContentView: View {
     var body: some View {
         // TabView to create the bottom navigation bar with 3 options
         TabView {
-            NavigationView() {
+            NavigationStack {
                 DashboardView()
             }
             .tabItem {
                 Label("Dashboard", systemImage: "house.fill")
             }
-            AccountsView()
+            NavigationStack {
+                AccountsView()
+            }
                 .tabItem {
                     Label("Accounts", systemImage: "rectangle.stack")
                 }
@@ -25,7 +27,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Cards", systemImage: "creditcard.fill")
                 }
-            AccountsView()
+            EmptyView()
                 .tabItem {
                     Label("Payments", systemImage: "dollarsign.arrow.trianglehead.counterclockwise.rotate.90")
                 }

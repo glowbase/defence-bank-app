@@ -48,6 +48,13 @@ var cardSliderPreviewData = SliderItem(
     Card: cardPreviewData
 )
 
+var groupedTransactionPreview = CategoryGroupedTransactions(
+    Transactions: transactionsPreviewData,
+    Category: "Food",
+    Total: 1039
+)
+
 var transactionsPreviewData = [Transaction](repeating: transactionPreviewData, count: 5)
 var accountsPreviewData = [Account](repeating: accountPreviewData, count: 2)
 var cardsPreviewData = [SliderItem](repeating: cardSliderPreviewData, count: 3)
+var groupedTransactionsPreviewData = [CategoryGroupedTransactions](repeating: groupedTransactionPreview, count: 4)

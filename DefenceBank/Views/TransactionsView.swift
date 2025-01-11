@@ -41,7 +41,10 @@ struct TransactionsView: View {
                     }
                 }
                 
-                ForEach(groupedTransactions(), id: \.date) { group in
+                let filteredTransactions = filterTransactions(query: query, transactions: transactions)
+                let groupedTransactions = groupTransactionsByDate(filteredTransactions)
+                
+                ForEach(groupedTransactions, id: \.date) { group in
                     if let parsedDate = parseDate(group.date) {
                         Section(header:
                             HStack {
@@ -73,7 +76,6 @@ struct TransactionsView: View {
                 }) {
                     Image(systemName: "magnifyingglass")
                         .foregroundColor(.accentColor)
-                        .padding([.trailing], 8)
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -95,7 +97,9 @@ struct TransactionsView: View {
             TransactionsSearchView()
         }
         .sheet(isPresented: $accountEditViewShowing) {
-            AccountEditView(account: account)
+            NavigationView {
+                AccountEditView(account: account)
+            }
         }
         .sheet(item: $selectedTransaction) { identifiableTransaction in
             TransactionDetailView(transaction: identifiableTransaction.transaction)
@@ -109,45 +113,6 @@ struct TransactionsView: View {
         return formatter.string(from: date)
     }
 
-    // Filter the transactions based on the search query
-    func filteredTransactions() -> [Transaction] {
-        if query.isEmpty {
-            return transactions
-        }
-        
-        return transactions.filter { transaction in
-            (transaction.MerchantName ?? transaction.Description ?? transaction.LongDescription ?? "").lowercased().contains(query.lowercased())
-        }
-    }
-
-    // Group the transactions by date (ignoring the time part) and apply search filtering
-    func groupedTransactions() -> [(date: String, transactions: [Transaction], total: Double)] {
-        // Filter transactions based on the search query
-        let filtered = filteredTransactions()
-
-        // Group by date (ignoring time)
-        let grouped = Dictionary(grouping: filtered) { transaction -> String in
-            if let parsedDate = parseDate(transaction.CreateDate) {
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd"  // Only the date part (no time)
-                return dateFormatter.string(from: parsedDate)
-            }
-            return ""  // Return an empty string for invalid dates
-        }
-
-        // Sort the groups by date and reverse the order (from most recent to oldest)
-        return grouped.keys.sorted().reversed().map { date in
-            // Filter transactions for this date
-            let transactions = grouped[date]!
-
-            // Calculate the total debited amount for this group
-            let totalDebited = transactions
-                .reduce(0) { $0 + $1.DebitAmount }
-
-            return (date: date, transactions: transactions, total: totalDebited)
-        }
-    }
-
     // Load transactions for the specified account number
     func loadData() {
         Task {
@@ -159,10 +124,8 @@ struct TransactionsView: View {
     }
 }
 
-struct TransactionsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            TransactionsView(account: accountPreviewData)
-        }
+#Preview {
+    NavigationStack {
+        TransactionsView(account: accountPreviewData)
     }
 }

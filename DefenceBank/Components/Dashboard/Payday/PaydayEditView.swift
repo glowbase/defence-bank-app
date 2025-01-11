@@ -13,13 +13,14 @@ struct PaydayEditView: View {
     @State private var nextPayday: Date = Date()
     @State private var frequency: String = "Fortnightly"
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let options = ["Weekly", "Fortnightly", "Monthly"]
     
     var body: some View {
         VStack {
             Image(systemName: "calendar")
                 .font(.system(size: 42))
-                .padding(.top, 24)
             Text("Your Pay Cycle")
                 .bold()
                 .font(.title3)
@@ -49,6 +50,15 @@ struct PaydayEditView: View {
             if let currentPayday = paydayCountdown {
                 self.nextPayday = currentPayday.NextPayday
                 self.frequency = currentPayday.Frequency
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark")
+                }
             }
         }
     }
