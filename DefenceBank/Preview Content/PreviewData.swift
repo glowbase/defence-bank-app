@@ -16,21 +16,19 @@ var accountPreviewData = Account(
 )
 
 var transactionPreviewData = Transaction(
-    AccountNumber: "20392984",
-    CreateDate: "",
-    DebitAmount: 103.64,
+    AccountNumber: "123456789",
+    CreateDate: ISO8601DateFormatter().string(from: Date()),
+    DebitAmount: 28.00,
     CreditAmount: 0.0,
-    Balance: 402.6,
-    Description: "Description",
-    LongDescription: "Long Description",
-    TransactionCodeDescription: "",
-    ImmutableTransactionId: 903894508392,
-    CanLookupMerchant: false,
-    MerchantLogo: "",
-    MerchantName: "Merchant Name",
-    CategoryList: [
-        "Food/Drink"
-    ]
+    Balance: 250.00,
+    Description: "Purchase",
+    LongDescription: "Purchase",
+    TransactionCodeDescription: "POS Purchase",
+    ImmutableTransactionId: 1122334455,
+    CanLookupMerchant: true,
+    MerchantLogo: "https://images.lookwhoscharging.com/d2c7868b-c732-4f82-80cd-b867ae17e10a/Aldi-Stores-Summerhill-Shopping-Centre-logo-image.png",
+    MerchantName: "ALDI (Summerhill)",
+    CategoryList: ["Groceries"]
 )
 
 var cardPreviewData = Card(

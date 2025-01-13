@@ -56,14 +56,17 @@ struct DashboardView: View {
     
     func loadData() {
         Task {
+            if !transactions.isEmpty { return }
+            
             let defaultAccount = UserDefaultsManager.shared.fetch(forKey: "default_account", type: Account.self)
             
             transactions = await getTransactions(account_number: defaultAccount?.AccountNumber ?? "")
-            groupedTransactionsByCategory = groupTransactionsByCategory(transactions)
             
-            if groupedTransactionsByCategory.isEmpty || transactions.isEmpty {
+            if transactions.isEmpty {
                 loadData()
             }
+            
+            groupedTransactionsByCategory = groupTransactionsByCategory(transactions)
             
             isLoading = false
         }

@@ -5,7 +5,8 @@
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
-      buildImplicitDependencies = "YES">
+      buildImplicitDependencies = "YES"
+      buildArchitectures = "Automatic">
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -15,9 +16,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1E37347429769D4F0089A364"
-               BuildableName = "CurrentAccountExtension.appex"
-               BlueprintName = "CurrentAccountExtension"
+               BlueprintIdentifier = "1E36E5B12D337EA200A5008A"
+               BuildableName = "PaydayWidgetExtension.appex"
+               BlueprintName = "PaydayWidgetExtension"
                ReferencedContainer = "container:DefenceBank.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -61,9 +62,9 @@
          BundleIdentifier = "com.apple.springboard">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1E37347429769D4F0089A364"
-            BuildableName = "CurrentAccountExtension.appex"
-            BlueprintName = "CurrentAccountExtension"
+            BlueprintIdentifier = "1E36E5B12D337EA200A5008A"
+            BuildableName = "PaydayWidgetExtension.appex"
+            BlueprintName = "PaydayWidgetExtension"
             ReferencedContainer = "container:DefenceBank.xcodeproj">
          </BuildableReference>
       </RemoteRunnable>

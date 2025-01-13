@@ -3,10 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E36E5B32D337EA200A5008A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */; };
+		1E36E5B42D337EA200A5008A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */; };
+		1E36E5C52D337EA300A5008A /* PaydayWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E36E5B22D337EA200A5008A /* PaydayWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1E36E5CC2D33A28D00A5008A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA7D2D2E4B2200090A9B /* Storage.swift */; };
+		1E36E5D32D33C97A00A5008A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84BBE329765AB600DF1AA6 /* WidgetKit.framework */; };
+		1E36E5D42D33C97A00A5008A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E84BBE529765AB600DF1AA6 /* SwiftUI.framework */; };
+		1E36E5DF2D33C97C00A5008A /* TransactionWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1E36E5D22D33C97A00A5008A /* TransactionWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1E36E5E52D33CB0600A5008A /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA7D2D2E4B2200090A9B /* Storage.swift */; };
+		1E36E5E62D33DD7200A5008A /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E942974096B0021FCC6 /* DataStructures.swift */; };
+		1E36E5E72D33DEF200A5008A /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
+		1E36E5E92D33DFD800A5008A /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 1E36E5E82D33DFD800A5008A /* KeychainAccess */; };
+		1E36E5EA2D34686C00A5008A /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E9629740A360021FCC6 /* PreviewData.swift */; };
+		1E36E5EB2D34686C00A5008A /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E9629740A360021FCC6 /* PreviewData.swift */; };
+		1E36E5EC2D3468FA00A5008A /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E942974096B0021FCC6 /* DataStructures.swift */; };
 		1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3734892977A50E0089A364 /* TransactionsView.swift */; };
 		1E4B8E7B2973D49D0021FCC6 /* DefenceBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E7A2973D49D0021FCC6 /* DefenceBankApp.swift */; };
 		1E4B8E7F2973D49E0021FCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4B8E7E2973D49E0021FCC6 /* Assets.xcassets */; };
@@ -36,7 +50,6 @@
 		1E61837B2D2D420C00B88338 /* PaydayEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E61837A2D2D420200B88338 /* PaydayEditView.swift */; };
 		1E72EA7E2D2E4B2600090A9B /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA7D2D2E4B2200090A9B /* Storage.swift */; };
 		1E72EA8A2D2FCF1D00090A9B /* TransactionGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA892D2FCF1900090A9B /* TransactionGraphView.swift */; };
-		1E72EA8E2D2FE2E200090A9B /* testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA8D2D2FE2DC00090A9B /* testing.swift */; };
 		1E72EA902D2FE9EC00090A9B /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA8F2D2FE9E900090A9B /* CategoryView.swift */; };
 		1E72EA922D30D4C500090A9B /* CategoryTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E72EA912D30D4BD00090A9B /* CategoryTransactionsView.swift */; };
 		1E846A7829751E8F00FEE80D /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E846A7729751E8F00FEE80D /* Methods.swift */; };
@@ -47,6 +60,23 @@
 		1EF14A6E2A8B1E6D0034DD5D /* TransactionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EF14A6D2A8B1E6D0034DD5D /* TransactionDetailView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1E36E5C32D337EA300A5008A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E4B8E6F2973D49D0021FCC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E36E5B12D337EA200A5008A;
+			remoteInfo = PaydayWidgetExtension;
+		};
+		1E36E5DD2D33C97C00A5008A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1E4B8E6F2973D49D0021FCC6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1E36E5D12D33C97A00A5008A;
+			remoteInfo = TransactionWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		1E84BBFA29765AB700DF1AA6 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -54,6 +84,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				1E36E5DF2D33C97C00A5008A /* TransactionWidgetExtension.appex in Embed Foundation Extensions */,
+				1E36E5C52D337EA300A5008A /* PaydayWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +93,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1E36E5B22D337EA200A5008A /* PaydayWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PaydayWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E36E5CD2D33BD6400A5008A /* PaydayWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PaydayWidgetExtension.entitlements; sourceTree = "<group>"; };
+		1E36E5D22D33C97A00A5008A /* TransactionWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TransactionWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E36E5E42D33C97F00A5008A /* TransactionWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TransactionWidgetExtension.entitlements; sourceTree = "<group>"; };
 		1E37348629769D6F0089A364 /* CurrentAccountExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CurrentAccountExtension.entitlements; sourceTree = "<group>"; };
 		1E3734892977A50E0089A364 /* TransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsView.swift; sourceTree = "<group>"; };
 		1E4B8E772973D49D0021FCC6 /* DefenceBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DefenceBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,7 +129,6 @@
 		1E61837A2D2D420200B88338 /* PaydayEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaydayEditView.swift; sourceTree = "<group>"; };
 		1E72EA7D2D2E4B2200090A9B /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		1E72EA892D2FCF1900090A9B /* TransactionGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGraphView.swift; sourceTree = "<group>"; };
-		1E72EA8D2D2FE2DC00090A9B /* testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testing.swift; sourceTree = "<group>"; };
 		1E72EA8F2D2FE9E900090A9B /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		1E72EA912D30D4BD00090A9B /* CategoryTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTransactionsView.swift; sourceTree = "<group>"; };
 		1E846A7729751E8F00FEE80D /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
@@ -104,7 +139,48 @@
 		1EF14A6D2A8B1E6D0034DD5D /* TransactionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1E36E5C62D337EA300A5008A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1E36E5B12D337EA200A5008A /* PaydayWidgetExtension */;
+		};
+		1E36E5E02D33C97C00A5008A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1E36E5D12D33C97A00A5008A /* TransactionWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1E36E5B52D337EA200A5008A /* PaydayWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1E36E5C62D337EA300A5008A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = PaydayWidget; sourceTree = "<group>"; };
+		1E36E5D52D33C97A00A5008A /* TransactionWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (1E36E5E02D33C97C00A5008A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = TransactionWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		1E36E5AF2D337EA200A5008A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E36E5B42D337EA200A5008A /* SwiftUI.framework in Frameworks */,
+				1E36E5B32D337EA200A5008A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E36E5CF2D33C97A00A5008A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E36E5D42D33C97A00A5008A /* SwiftUI.framework in Frameworks */,
+				1E36E5D32D33C97A00A5008A /* WidgetKit.framework in Frameworks */,
+				1E36E5E92D33DFD800A5008A /* KeychainAccess in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E4B8E742973D49D0021FCC6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,8 +196,12 @@
 		1E4B8E6E2973D49D0021FCC6 = {
 			isa = PBXGroup;
 			children = (
+				1E36E5E42D33C97F00A5008A /* TransactionWidgetExtension.entitlements */,
+				1E36E5CD2D33BD6400A5008A /* PaydayWidgetExtension.entitlements */,
 				1E37348629769D6F0089A364 /* CurrentAccountExtension.entitlements */,
 				1E4B8E792973D49D0021FCC6 /* DefenceBank */,
+				1E36E5B52D337EA200A5008A /* PaydayWidget */,
+				1E36E5D52D33C97A00A5008A /* TransactionWidget */,
 				1E84BBE229765AB600DF1AA6 /* Frameworks */,
 				1E4B8E782973D49D0021FCC6 /* Products */,
 			);
@@ -131,6 +211,8 @@
 			isa = PBXGroup;
 			children = (
 				1E4B8E772973D49D0021FCC6 /* DefenceBank.app */,
+				1E36E5B22D337EA200A5008A /* PaydayWidgetExtension.appex */,
+				1E36E5D22D33C97A00A5008A /* TransactionWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,7 +270,6 @@
 		1E6183632D2A993B00B88338 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				1E72EA8D2D2FE2DC00090A9B /* testing.swift */,
 				1E72EA7D2D2E4B2200090A9B /* Storage.swift */,
 				1E6183642D2BE6F500B88338 /* FaceID.swift */,
 				1E6183612D2A992F00B88338 /* CardSlider.swift */,
@@ -287,6 +368,51 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1E36E5B12D337EA200A5008A /* PaydayWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E36E5C72D337EA300A5008A /* Build configuration list for PBXNativeTarget "PaydayWidgetExtension" */;
+			buildPhases = (
+				1E36E5AE2D337EA200A5008A /* Sources */,
+				1E36E5AF2D337EA200A5008A /* Frameworks */,
+				1E36E5B02D337EA200A5008A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1E36E5B52D337EA200A5008A /* PaydayWidget */,
+			);
+			name = PaydayWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = PaydayWidgetExtension;
+			productReference = 1E36E5B22D337EA200A5008A /* PaydayWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		1E36E5D12D33C97A00A5008A /* TransactionWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E36E5E12D33C97C00A5008A /* Build configuration list for PBXNativeTarget "TransactionWidgetExtension" */;
+			buildPhases = (
+				1E36E5CE2D33C97A00A5008A /* Sources */,
+				1E36E5CF2D33C97A00A5008A /* Frameworks */,
+				1E36E5D02D33C97A00A5008A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1E36E5D52D33C97A00A5008A /* TransactionWidget */,
+			);
+			name = TransactionWidgetExtension;
+			packageProductDependencies = (
+				1E36E5E82D33DFD800A5008A /* KeychainAccess */,
+			);
+			productName = TransactionWidgetExtension;
+			productReference = 1E36E5D22D33C97A00A5008A /* TransactionWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1E4B8E762973D49D0021FCC6 /* DefenceBank */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E4B8E852973D49E0021FCC6 /* Build configuration list for PBXNativeTarget "DefenceBank" */;
@@ -299,6 +425,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				1E36E5C42D337EA300A5008A /* PBXTargetDependency */,
+				1E36E5DE2D33C97C00A5008A /* PBXTargetDependency */,
 			);
 			name = DefenceBank;
 			packageProductDependencies = (
@@ -316,9 +444,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					1E36E5B12D337EA200A5008A = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					1E36E5D12D33C97A00A5008A = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					1E4B8E762973D49D0021FCC6 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -342,11 +476,27 @@
 			projectRoot = "";
 			targets = (
 				1E4B8E762973D49D0021FCC6 /* DefenceBank */,
+				1E36E5B12D337EA200A5008A /* PaydayWidgetExtension */,
+				1E36E5D12D33C97A00A5008A /* TransactionWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1E36E5B02D337EA200A5008A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E36E5D02D33C97A00A5008A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E4B8E752973D49D0021FCC6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -359,6 +509,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1E36E5AE2D337EA200A5008A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E36E5EC2D3468FA00A5008A /* DataStructures.swift in Sources */,
+				1E36E5CC2D33A28D00A5008A /* Storage.swift in Sources */,
+				1E36E5EA2D34686C00A5008A /* PreviewData.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1E36E5CE2D33C97A00A5008A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E36E5EB2D34686C00A5008A /* PreviewData.swift in Sources */,
+				1E36E5E72D33DEF200A5008A /* Methods.swift in Sources */,
+				1E36E5E62D33DD7200A5008A /* DataStructures.swift in Sources */,
+				1E36E5E52D33CB0600A5008A /* Storage.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1E4B8E732973D49D0021FCC6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,7 +554,6 @@
 				1E72EA902D2FE9EC00090A9B /* CategoryView.swift in Sources */,
 				1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */,
 				1EF14A6E2A8B1E6D0034DD5D /* TransactionDetailView.swift in Sources */,
-				1E72EA8E2D2FE2E200090A9B /* testing.swift in Sources */,
 				1E6183702D2CA22800B88338 /* CardQuickActionsView.swift in Sources */,
 				1E4B8E952974096B0021FCC6 /* DataStructures.swift in Sources */,
 				1E61835E2D296A3600B88338 /* ContentView.swift in Sources */,
@@ -402,7 +572,150 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1E36E5C42D337EA300A5008A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E36E5B12D337EA200A5008A /* PaydayWidgetExtension */;
+			targetProxy = 1E36E5C32D337EA300A5008A /* PBXContainerItemProxy */;
+		};
+		1E36E5DE2D33C97C00A5008A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1E36E5D12D33C97A00A5008A /* TransactionWidgetExtension */;
+			targetProxy = 1E36E5DD2D33C97C00A5008A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		1E36E5C82D337EA300A5008A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PaydayWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GXF8UVUB8;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PaydayWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PaydayWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperbeltrami.DefenceBank.PaydayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E36E5C92D337EA300A5008A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = PaydayWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GXF8UVUB8;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PaydayWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PaydayWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperbeltrami.DefenceBank.PaydayWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1E36E5E22D33C97C00A5008A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TransactionWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GXF8UVUB8;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TransactionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperbeltrami.DefenceBank.TransactionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1E36E5E32D33C97C00A5008A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TransactionWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2GXF8UVUB8;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TransactionWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TransactionWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperbeltrami.DefenceBank.TransactionWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1E4B8E832973D49E0021FCC6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -592,6 +905,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1E36E5C72D337EA300A5008A /* Build configuration list for PBXNativeTarget "PaydayWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E36E5C82D337EA300A5008A /* Debug */,
+				1E36E5C92D337EA300A5008A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1E36E5E12D33C97C00A5008A /* Build configuration list for PBXNativeTarget "TransactionWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1E36E5E22D33C97C00A5008A /* Debug */,
+				1E36E5E32D33C97C00A5008A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1E4B8E722973D49D0021FCC6 /* Build configuration list for PBXProject "DefenceBank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -632,6 +963,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1E36E5E82D33DFD800A5008A /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E846A7929753F5600FEE80D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		1E846A7A29753F5600FEE80D /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 1E846A7929753F5600FEE80D /* XCRemoteSwiftPackageReference "KeychainAccess" */;

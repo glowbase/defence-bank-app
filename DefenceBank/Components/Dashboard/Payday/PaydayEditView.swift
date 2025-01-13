@@ -67,7 +67,7 @@ struct PaydayEditView: View {
     private func savePaydayData() {
         let updatedPayday = PaydayCountdown(NextPayday: nextPayday, Frequency: frequency)
         paydayCountdown = updatedPayday
-        UserDefaultsManager.shared.save(updatedPayday, forKey: "paydayCountdown")
+        UserDefaultsManager.shared.save(updatedPayday, forKey: "payday_countdown")
     }
 }
 

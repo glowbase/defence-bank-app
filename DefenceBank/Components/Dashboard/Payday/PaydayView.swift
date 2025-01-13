@@ -92,6 +92,7 @@ struct PaydayView: View {
         VStack {
             HStack {
                 Text(daysUntilPaydayText)  // Show dynamic countdown text
+                    .font(.system(size: 18))
                     .bold()
                 Spacer()
                 Image(systemName: "gear")
@@ -105,9 +106,10 @@ struct PaydayView: View {
             ProgressView(value: progress, total: 1)
                 .progressViewStyle(LinearProgressViewStyle(tint: .red))
                 .scaleEffect(x: 1, y: 4, anchor: .center)
-                .frame(height: 15)
+                .frame(height: 12)
                 .cornerRadius(10)
-                .padding([.bottom], 4)
+                .padding(.top, 2)
+                .padding(.bottom, 8)
             
             if let payday = paydayCountdown {
                 // Display the loaded payday data
@@ -145,7 +147,7 @@ struct PaydayView: View {
     
     private func loadData() {
         // Load saved payday data when the view appears or when the sheet is dismissed
-        if let savedPayday = UserDefaultsManager.shared.fetch(forKey: "paydayCountdown", type: PaydayCountdown.self) {
+        if let savedPayday = UserDefaultsManager.shared.fetch(forKey: "payday_countdown", type: PaydayCountdown.self) {
             self.paydayCountdown = savedPayday
         } else {
             self.paydayCountdown = nil
@@ -158,7 +160,6 @@ private let dateFormatter: DateFormatter = {
     formatter.dateStyle = .medium
     return formatter
 }()
-
 
 struct PaydayView_Previews: PreviewProvider {
     static var previews: some View {
