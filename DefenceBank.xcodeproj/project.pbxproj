@@ -24,7 +24,6 @@
 		1E37348A2977A50E0089A364 /* TransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3734892977A50E0089A364 /* TransactionsView.swift */; };
 		1E4B8E7B2973D49D0021FCC6 /* DefenceBankApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E7A2973D49D0021FCC6 /* DefenceBankApp.swift */; };
 		1E4B8E7F2973D49E0021FCC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4B8E7E2973D49E0021FCC6 /* Assets.xcassets */; };
-		1E4B8E822973D49E0021FCC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E4B8E812973D49E0021FCC6 /* Preview Assets.xcassets */; };
 		1E4B8E892973DE120021FCC6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E882973DE120021FCC6 /* LoginView.swift */; };
 		1E4B8E8C2973FC7C0021FCC6 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E8B2973FC7C0021FCC6 /* DashboardView.swift */; };
 		1E4B8E952974096B0021FCC6 /* DataStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E4B8E942974096B0021FCC6 /* DataStructures.swift */; };
@@ -102,7 +101,6 @@
 		1E4B8E772973D49D0021FCC6 /* DefenceBank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DefenceBank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E4B8E7A2973D49D0021FCC6 /* DefenceBankApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefenceBankApp.swift; sourceTree = "<group>"; };
 		1E4B8E7E2973D49E0021FCC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1E4B8E812973D49E0021FCC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E4B8E882973DE120021FCC6 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		1E4B8E8B2973FC7C0021FCC6 /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		1E4B8E942974096B0021FCC6 /* DataStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructures.swift; sourceTree = "<group>"; };
@@ -227,18 +225,8 @@
 				1E4B8E8A2973FC6D0021FCC6 /* Views */,
 				1E4B8E7A2973D49D0021FCC6 /* DefenceBankApp.swift */,
 				1E4B8E7E2973D49E0021FCC6 /* Assets.xcassets */,
-				1E4B8E802973D49E0021FCC6 /* Preview Content */,
 			);
 			path = DefenceBank;
-			sourceTree = "<group>";
-		};
-		1E4B8E802973D49E0021FCC6 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1E4B8E812973D49E0021FCC6 /* Preview Assets.xcassets */,
-				1E4B8E9629740A360021FCC6 /* PreviewData.swift */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1E4B8E8A2973FC6D0021FCC6 /* Views */ = {
@@ -273,6 +261,7 @@
 				1E72EA7D2D2E4B2200090A9B /* Storage.swift */,
 				1E6183642D2BE6F500B88338 /* FaceID.swift */,
 				1E6183612D2A992F00B88338 /* CardSlider.swift */,
+				1E4B8E9629740A360021FCC6 /* PreviewData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -501,7 +490,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E4B8E822973D49E0021FCC6 /* Preview Assets.xcassets in Resources */,
 				1E4B8E7F2973D49E0021FCC6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -840,7 +828,6 @@
 				CODE_SIGN_ENTITLEMENTS = DefenceBank/DefenceBank.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DefenceBank/Preview Content\"";
 				DEVELOPMENT_TEAM = 2GXF8UVUB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -875,7 +862,6 @@
 				CODE_SIGN_ENTITLEMENTS = DefenceBank/DefenceBank.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"DefenceBank/Preview Content\"";
 				DEVELOPMENT_TEAM = 2GXF8UVUB8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
